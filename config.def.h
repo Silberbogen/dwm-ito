@@ -51,32 +51,32 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
-static const char *delugecmd[]  = { "deluge", NULL };
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *gvimcmd[]  = { "gvim", NULL };
-static const char *firefoxcmd[]  = { "firefox-aurora", NULL };
-static const char *hototcmd[]  = { "hotot", NULL };
-static const char *keepassxcmd[]  = { "keepassx", NULL };
-static const char *kaffeinecmd[]  = { "kaffeine", NULL };
-static const char *lockcmd[]  = { "xflock4", NULL };
-static const char *mailcmd[]  = { "claws-mail", NULL };
-static const char *mccmd[]  = { "uxterm", "-e", "mc", NULL };
-static const char *okularcmd[]  = { "okular", NULL };
-static const char *osmocmd[]  = { "osmo", NULL };
-static const char *ristrettocmd[]  = { "ristretto", NULL };
-static const char *seahorsecmd[]  = { "seahorse", NULL };
-static const char *stcmd[]  = { "st", NULL };
-static const char *surfcmd[]  = { "surf", NULL };
-static const char *screenshotcmd[]  = { "scrot", NULL };
 static const char *termcmd[]  = { "uxterm", NULL };
-static const char *thunarcmd[]  = { "thunar", NULL };
-static const char *tponcmd[]  = { "'synclient touchpadoff=0'", NULL };
-static const char *tpoffcmd[]  = { "'synclient touchpadoff=1'", NULL };
-static const char *unisoncmd[]  = { "unison-gtk2", NULL };
-static const char *uzblcmd[]  = { "uzbl-browser", NULL };
-static const char *vlccmd[]  = { "vlc", NULL };
-static const char *xchatcmd[]  = { "xchat", NULL };
-static const char *zathuracmd[]  = { "zathura", NULL };
+static const char *stcmd[]  = { "st", NULL };
+static const char *m_a_c_cmd[]  = { "claws-mail", NULL };
+static const char *m_a_d_cmd[]  = { "deluge", NULL };
+static const char *m_a_g_cmd[]  = { "gvim", NULL };
+static const char *m_a_f_cmd[]  = { "firefox-aurora", NULL };
+static const char *m_a_h_cmd[]  = { "hotot", NULL };
+static const char *m_a_k_cmd[]  = { "keepassx", NULL };
+static const char *m_a_l_cmd[]  = { "xflock4", NULL };
+static const char *m_a_m_cmd[]  = { "uxterm", "-e", "mc", NULL };
+static const char *m_a_o_cmd[]  = { "osmo", NULL };
+static const char *m_a_p_cmd[]  = { "scrot", NULL };
+static const char *m_a_r_cmd[]  = { "ristretto", NULL };
+static const char *m_a_s_cmd[]  = { "seahorse", NULL };
+static const char *m_a_t_cmd[]  = { "thunar", NULL };
+static const char *m_a_u_cmd[]  = { "uzbl-browser", NULL };
+static const char *m_a_v_cmd[]  = { "vlc", NULL };
+static const char *m_a_y_cmd[]  = { "'synclient touchpadoff=1'", NULL };
+static const char *m_a_x_cmd[]  = { "xchat", NULL };
+static const char *m_a_z_cmd[]  = { "zathura", NULL };
+static const char *m_a_s_k_cmd[]  = { "kaffeine", NULL };
+static const char *m_a_s_o_cmd[]  = { "okular", NULL };
+static const char *m_a_s_s_cmd[]  = { "surf", NULL };
+static const char *m_a_s_u_cmd[]  = { "unison-gtk2", NULL };
+static const char *m_a_s_y_cmd[]  = { "'synclient touchpadoff=0'", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -104,7 +104,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY,                       XK_Left,  view_adjacent,  { .i = -1 } },  // vorheriger Tag	
-        { MODKEY,                       XK_Right, view_adjacent,  { .i = +1 } },  // nächster Tag
+    { MODKEY,                       XK_Right, view_adjacent,  { .i = +1 } },  // nächster Tag
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -116,31 +116,31 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 // Selbsterstellte Kürzel
-        { MODKEY|ALTKEY,                XK_c,      spawn,          {.v = mailcmd } },
-        { MODKEY|ALTKEY,                XK_d,      spawn,          {.v = delugecmd } },
-        { MODKEY|ALTKEY,                XK_f,      spawn,          {.v = firefoxcmd } },
-        { MODKEY|ALTKEY,                XK_g,      spawn,          {.v = gvimcmd } },
-        { MODKEY|ALTKEY,                XK_h,      spawn,          {.v = hototcmd } },
-        { MODKEY|ALTKEY,                XK_k,      spawn,          {.v = keepassxcmd } },
-        { MODKEY|ALTKEY|ShiftMask,      XK_k,      spawn,          {.v = kaffeinecmd } },
-        { MODKEY|ALTKEY,                XK_l,      spawn,          {.v = lockcmd } },
-        { MODKEY|ALTKEY,                XK_m,      spawn,          {.v = mccmd } },
-        { MODKEY|ALTKEY,                XK_o,      spawn,          {.v = osmocmd } },
-        { MODKEY|ALTKEY|ShiftMask,      XK_o,      spawn,          {.v = okularcmd } },
-        { MODKEY|ALTKEY,                XK_r,      spawn,          {.v = ristrettocmd } },
-	{ MODKEY|ALTKEY,                XK_p,      spawn,          {.v = screenshotcmd } },
-        { MODKEY|ALTKEY,                XK_s,      spawn,          {.v = seahorsecmd } },
-        { MODKEY|ALTKEY|ShiftMask,      XK_s,      spawn,          {.v = surfcmd } },
-        { MODKEY|ALTKEY,                XK_t,      spawn,          {.v = thunarcmd } },
-        { MODKEY|ALTKEY,                XK_u,      spawn,          {.v = uzblcmd } },
-        { MODKEY|ALTKEY|ShiftMask,      XK_u,      spawn,          {.v = unisoncmd } },
-        { MODKEY|ALTKEY,                XK_v,      spawn,          {.v = vlccmd } },
-        { MODKEY|ALTKEY,                XK_x,      spawn,          {.v = xchatcmd } },
-        { MODKEY|ALTKEY,                XK_y,      spawn,          {.v = tpoffcmd } },
-        { MODKEY|ALTKEY|ShiftMask,      XK_y,      spawn,          {.v = tponcmd } },
-        { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = zathuracmd } },
+    { MODKEY|ALTKEY,                XK_c,      spawn,          {.v = m_a_c_cmd } },
+    { MODKEY|ALTKEY,                XK_d,      spawn,          {.v = m_a_d_cmd } },
+    { MODKEY|ALTKEY,                XK_f,      spawn,          {.v = m_a_f_cmd } },
+    { MODKEY|ALTKEY,                XK_g,      spawn,          {.v = m_a_g_cmd } },
+    { MODKEY|ALTKEY,                XK_h,      spawn,          {.v = m_a_h_cmd } },
+    { MODKEY|ALTKEY,                XK_k,      spawn,          {.v = m_a_k_cmd } },
+    { MODKEY|ALTKEY,                XK_l,      spawn,          {.v = m_a_l_cmd } },
+    { MODKEY|ALTKEY,                XK_m,      spawn,          {.v = m_a_m_cmd } },
+    { MODKEY|ALTKEY,                XK_o,      spawn,          {.v = m_a_o_cmd } },
+	{ MODKEY|ALTKEY,                XK_p,      spawn,          {.v = m_a_p_cmd } },
+    { MODKEY|ALTKEY,                XK_r,      spawn,          {.v = m_a_r_cmd } },
+    { MODKEY|ALTKEY,                XK_s,      spawn,          {.v = m_a_s_cmd } },
+    { MODKEY|ALTKEY,                XK_t,      spawn,          {.v = m_a_t_cmd } },
+    { MODKEY|ALTKEY,                XK_u,      spawn,          {.v = m_a_u_cmd } },
+    { MODKEY|ALTKEY,                XK_v,      spawn,          {.v = m_a_v_cmd } },
+    { MODKEY|ALTKEY,                XK_x,      spawn,          {.v = m_a_x_cmd } },
+    { MODKEY|ALTKEY,                XK_y,      spawn,          {.v = m_a_y_cmd } },
+    { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_k,      spawn,          {.v = m_a_s_k_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_o,      spawn,          {.v = m_a_s_o_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_s,      spawn,          {.v = m_a_s_s_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_u,      spawn,          {.v = m_a_s_u_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_y,      spawn,          {.v = m_a_s_y_cmd } },
 	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = stcmd } },
-	{ 0,                            XK_Print,  spawn,          {.v = screenshotcmd } },
+	{ 0,                            XK_Print,  spawn,          {.v = m_a_p_cmd } },
 };
 
 /* button definitions */
@@ -158,7 +158,7 @@ static Button buttons[] = {
 	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
-        { ClkTagBar,            0,              Button4,        view_adjacent,     { .i = -1 } },
-        { ClkTagBar,            0,              Button5,        view_adjacent,     { .i = +1 } },
+    { ClkTagBar,            0,              Button4,        view_adjacent,     { .i = -1 } },
+    { ClkTagBar,            0,              Button5,        view_adjacent,     { .i = +1 } },
 };
 

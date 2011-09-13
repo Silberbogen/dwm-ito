@@ -2194,13 +2194,13 @@ zoom(const Arg *arg) {
 int
 main(int argc, char *argv[]) {
 	if(argc == 2 && !strcmp("-v", argv[1]))
-		die("dwm-"VERSION", © 2006-2011 dwm engineers, see LICENSE for details\n");
+		die("dwm-"VERSION", © 2006-2011 dwm engineers, siehe LICENSE bezüglich Details\n");
 	else if(argc != 1)
-		die("usage: dwm [-v]\n");
+		die("Verwendung: dwm [-v]\n");
 	if(!setlocale(LC_CTYPE, "") || !XSupportsLocale())
-		fputs("warning: no locale support\n", stderr);
+		fputs("Warnung: Keine locale-Unterstützung\n", stderr);
 	if(!(dpy = XOpenDisplay(NULL)))
-		die("dwm: cannot open display\n");
+		die("dwm: Kann den Bildschirm nicht ansprechen\n");
 	checkotherwm();
 	setup();
 	scan();

@@ -1,42 +1,37 @@
 dwm - dynamic window manager
 ============================
-dwm is an extremely fast, small, and dynamic window manager for X.
+dwm ist ein extrem schneller, kleiner und dynamischer Fenstermanager für X.
 
 
-Requirements
-------------
-In order to build dwm you need the Xlib header files.
+Anforderungen
+-------------
+Um dwm bauen zu können, benötigst du die Xlib-Headerdateien.
 
 
 Installation
 ------------
-Edit config.mk to match your local setup (dwm is installed into
-the /usr/local namespace by default).
+Bearbeite config.mk um deine lokalen Einstellungen anzupassen (dwm wird per Voreinstellung in den /usr/local Namensbereich installiert).
 
-Afterwards enter the following command to build and install dwm (if
-necessary as root):
+Gib danach den nachfolgenden Befehl ein um dwm zu bauen und zu installieren (nötigenfalls als root):
 
     make clean install
 
-If you are going to use the default bluegray color scheme it is highly
-recommended to also install the bluegray files shipped in the dextra package.
+Wenn du das vorgegebene blaugraue Farbschema verwendest, wird dazu geraten, ebenfalls die blaugraue Datei zu installieren die mit dem dextra Paket geliefert wird.
 
 
-Running dwm
------------
-Add the following line to your .xinitrc to start dwm using startx:
+dwm laufen lassen
+-----------------
+Füge die folgende Zeile deiner .xinitrc Datei hinzu, um dwm unter Verwendung von startx zu starten:
 
     exec dwm
 
-In order to connect dwm to a specific display, make sure that
-the DISPLAY environment variable is set correctly, e.g.:
+Um dwm mit einem spezifischen Bildschirm zu verbinden, versichere dich das die DISPLAY-Umgebungsvariable korrekt gesetzt ist, wie z.B.:
 
     DISPLAY=foo.bar:1 exec dwm
 
-(This will start dwm on display :1 of the host foo.bar.)
+(Dies wird dwm auf Bildschirm :1 auf dem Host foo.bar starten.)
 
-In order to display status info in the bar, you can do something
-like this in your .xinitrc:
+Um die Status-Informationen auf der Statuszeile darzustellen, kannst du etwas in der folgenden Art zu deiner .xinitrc Datei hinzufügen:
 
     while xsetroot -name "`date` `uptime | sed 's/.*,//'`"
     do
@@ -45,7 +40,6 @@ like this in your .xinitrc:
     exec dwm
 
 
-Configuration
+Konfiguration
 -------------
-The configuration of dwm is done by creating a custom config.h
-and (re)compiling the source code.
+Die Konfiguration von dwm wird angepasst, durch Erstellung einer angepassten config.h und der (Re-)Compilation des Quellcodes.

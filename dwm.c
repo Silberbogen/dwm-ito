@@ -663,7 +663,7 @@ createmon(void) {
 	unsigned int i;
 
 	if(!(m = (Monitor *)calloc(1, sizeof(Monitor))))
-		die("fatal: could not malloc() %u bytes\n", sizeof(Monitor));
+		die("Fatal: konnte per malloc() keine %u Bytes anfordern\n", sizeof(Monitor));
 	m->tagset[0] = m->tagset[1] = 1;
 	m->mfact = mfact;
 	m->showbar = showbar;
@@ -713,6 +713,7 @@ detachstack(Client *c) {
 	}
 }
 
+// Simple Ausgabe einer Meldungskette mit anschließender Beendigung der Anwendung
 void
 die(const char *errstr, ...) {
 	va_list ap;
@@ -942,7 +943,7 @@ getcolor(const char *colstr) {
 	XColor color;
 
 	if(!XAllocNamedColor(dpy, cmap, colstr, &color, &color))
-		die("error, cannot allocate color '%s'\n", colstr);
+		die("Fehler, kann Farbe nicht bereitstellen '%s'\n", colstr);
 	return color.pixel;
 }
 
@@ -1046,7 +1047,7 @@ initfont(const char *fontstr) {
 	dc.font.set = XCreateFontSet(dpy, fontstr, &missing, &n, &def);
 	if(missing) {
 		while(n--)
-			fprintf(stderr, "dwm: missing fontset: %s\n", missing[n]);
+			fprintf(stderr, "dwm: fehlender Zeichensatz: %s\n", missing[n]);
 		XFreeStringList(missing);
 	}
 	if(dc.font.set) {
@@ -1065,7 +1066,7 @@ initfont(const char *fontstr) {
 	else {
 		if(!(dc.font.xfont = XLoadQueryFont(dpy, fontstr))
 		&& !(dc.font.xfont = XLoadQueryFont(dpy, "fixed")))
-			die("error, cannot load font: '%s'\n", fontstr);
+			die("Fehler, kann Zeichensatz nicht laden: '%s'\n", fontstr);
 		dc.font.ascent = dc.font.xfont->ascent;
 		dc.font.descent = dc.font.xfont->descent;
 	}
@@ -1120,7 +1121,7 @@ manage(Window w, XWindowAttributes *wa) {
 	XWindowChanges wc;
 
 	if(!(c = calloc(1, sizeof(Client))))
-		die("fatal: could not malloc() %u bytes\n", sizeof(Client));
+		die("Fatal: konnte per malloc() keine %u Bytes anfordern\n", sizeof(Client));
 	c->win = w;
 	updatetitle(c);
 	if(XGetTransientForHint(dpy, w, &trans) && (t = wintoclient(trans))) {
@@ -1617,7 +1618,7 @@ showhide(Client *c) {
 void
 sigchld(int unused) {
 	if(signal(SIGCHLD, sigchld) == SIG_ERR)
-		die("Can't install SIGCHLD handler");
+		die("Kann SIGCHLD-Handler nicht installieren");
 	while(0 < waitpid(-1, NULL, WNOHANG));
 }
 
@@ -1629,7 +1630,7 @@ spawn(const Arg *arg) {
 		setsid();
 		execvp(((char **)arg->v)[0], (char **)arg->v);
 		fprintf(stderr, "dwm: execvp %s", ((char **)arg->v)[0]);
-		perror(" failed");
+		perror(" fehlgeschlagen");
 		exit(EXIT_SUCCESS);
 	}
 }
@@ -1896,7 +1897,7 @@ updategeom(void) {
 		for(n = 0, m = mons; m; m = m->next, n++);
 		/* only consider unique geometries as separate screens */
 		if(!(unique = (XineramaScreenInfo *)malloc(sizeof(XineramaScreenInfo) * nn)))
-			die("fatal: could not malloc() %u bytes\n", sizeof(XineramaScreenInfo) * nn);
+			die("Fatal: konnte per malloc() keine %u Bytes anfordern\n", sizeof(XineramaScreenInfo) * nn);
 		for(i = 0, j = 0; i < nn; i++)
 			if(isuniquegeom(unique, j, &info[i]))
 				memcpy(&unique[j++], &info[i], sizeof(XineramaScreenInfo));
@@ -2160,7 +2161,7 @@ xerror(Display *dpy, XErrorEvent *ee) {
 	|| (ee->request_code == X_GrabKey && ee->error_code == BadAccess)
 	|| (ee->request_code == X_CopyArea && ee->error_code == BadDrawable))
 		return 0;
-	fprintf(stderr, "dwm: fatal error: request code=%d, error code=%d\n",
+	fprintf(stderr, "dwm: Fataler Fehler: angefragter Code=%d, fehlerhafter Code=%d\n",
 			ee->request_code, ee->error_code);
 	return xerrorxlib(dpy, ee); /* may call exit */
 }
@@ -2174,7 +2175,7 @@ xerrordummy(Display *dpy, XErrorEvent *ee) {
  * is already running. */
 int
 xerrorstart(Display *dpy, XErrorEvent *ee) {
-	die("dwm: another window manager is already running\n");
+	die("dwm: ein anderer Fenstermanager läuft bereits\n");
 	return -1;
 }
 

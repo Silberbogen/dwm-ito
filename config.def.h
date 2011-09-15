@@ -69,11 +69,13 @@ static const char *m_a_s_cmd[]  = { "seahorse", NULL };
 static const char *m_a_t_cmd[]  = { "thunar", NULL };
 static const char *m_a_u_cmd[]  = { "uzbl-browser", NULL };
 static const char *m_a_v_cmd[]  = { "vlc", NULL };
+static const char *m_a_w_cmd[]  = { "wikidpad", NULL };
 static const char *m_a_y_cmd[]  = { "'synclient touchpadoff=1'", NULL };
 static const char *m_a_x_cmd[]  = { "xchat", NULL };
 static const char *m_a_z_cmd[]  = { "zathura", NULL };
 static const char *m_a_s_k_cmd[]  = { "kaffeine", NULL };
 static const char *m_a_s_o_cmd[]  = { "okular", NULL };
+static const char *m_a_s_r_cmd[]  = { "rednotebook", NULL };
 static const char *m_a_s_s_cmd[]  = { "surf", NULL };
 static const char *m_a_s_u_cmd[]  = { "unison-gtk2", NULL };
 static const char *m_a_s_y_cmd[]  = { "'synclient touchpadoff=0'", NULL };
@@ -131,11 +133,13 @@ static Key keys[] = {
     { MODKEY|ALTKEY,                XK_t,      spawn,          {.v = m_a_t_cmd } },
     { MODKEY|ALTKEY,                XK_u,      spawn,          {.v = m_a_u_cmd } },
     { MODKEY|ALTKEY,                XK_v,      spawn,          {.v = m_a_v_cmd } },
+    { MODKEY|ALTKEY,                XK_w,      spawn,          {.v = m_a_w_cmd } },
     { MODKEY|ALTKEY,                XK_x,      spawn,          {.v = m_a_x_cmd } },
     { MODKEY|ALTKEY,                XK_y,      spawn,          {.v = m_a_y_cmd } },
     { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_k,      spawn,          {.v = m_a_s_k_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_o,      spawn,          {.v = m_a_s_o_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_r,      spawn,          {.v = m_a_s_r_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_s,      spawn,          {.v = m_a_s_s_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_u,      spawn,          {.v = m_a_s_u_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_y,      spawn,          {.v = m_a_s_y_cmd } },

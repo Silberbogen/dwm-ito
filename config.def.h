@@ -54,11 +54,14 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "uxterm", NULL };
 static const char *stcmd[]  = { "st", NULL };
+static const char *m_a_a_cmd[]  = { "st", "-e", "abook", NULL };
 static const char *m_a_c_cmd[]  = { "claws-mail", NULL };
 static const char *m_a_d_cmd[]  = { "deluge", NULL };
+static const char *m_a_e_cmd[]  = { "st", "-e", "torify", "mutt", NULL };
 static const char *m_a_g_cmd[]  = { "gvim", NULL };
 static const char *m_a_f_cmd[]  = { "firefox-aurora", NULL };
 static const char *m_a_h_cmd[]  = { "hotot", NULL };
+static const char *m_a_i_cmd[]  = { "uxterm", "-fg", "white", "-bg", "red", "-e", "identica", NULL };
 static const char *m_a_k_cmd[]  = { "keepassx", NULL };
 static const char *m_a_l_cmd[]  = { "xflock4", NULL };
 static const char *m_a_m_cmd[]  = { "uxterm", "-e", "mc", NULL };
@@ -73,11 +76,15 @@ static const char *m_a_w_cmd[]  = { "wikidpad", NULL };
 static const char *m_a_y_cmd[]  = { "'synclient touchpadoff=1'", NULL };
 static const char *m_a_x_cmd[]  = { "xchat", NULL };
 static const char *m_a_z_cmd[]  = { "zathura", NULL };
+static const char *m_a_s_c_cmd[]  = { "st", "-e", "calcurse", NULL };
 static const char *m_a_s_k_cmd[]  = { "kaffeine", NULL };
 static const char *m_a_s_o_cmd[]  = { "okular", NULL };
 static const char *m_a_s_r_cmd[]  = { "rednotebook", NULL };
 static const char *m_a_s_s_cmd[]  = { "surf", NULL };
+static const char *m_a_s_t_cmd[]  = { "uxterm", "-fg", "white", "-bg", "blue", "-e", "twitter", NULL };
 static const char *m_a_s_u_cmd[]  = { "unison-gtk2", NULL };
+static const char *m_a_s_w_cmd[]  = { "uxterm", "-fg", "white", "-bg", "blue", "-e", "ctw", "--refresh=10", "GMXX0067", NULL };
+static const char *m_a_s_x_cmd[]  = { "st", "-e", "telecomix", NULL };
 static const char *m_a_s_y_cmd[]  = { "'synclient touchpadoff=0'", NULL };
 
 static Key keys[] = {
@@ -118,11 +125,14 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 // Selbsterstellte Kürzel
+    { MODKEY|ALTKEY,                XK_a,      spawn,          {.v = m_a_a_cmd } },
     { MODKEY|ALTKEY,                XK_c,      spawn,          {.v = m_a_c_cmd } },
     { MODKEY|ALTKEY,                XK_d,      spawn,          {.v = m_a_d_cmd } },
+    { MODKEY|ALTKEY,                XK_e,      spawn,          {.v = m_a_e_cmd } },
     { MODKEY|ALTKEY,                XK_f,      spawn,          {.v = m_a_f_cmd } },
     { MODKEY|ALTKEY,                XK_g,      spawn,          {.v = m_a_g_cmd } },
     { MODKEY|ALTKEY,                XK_h,      spawn,          {.v = m_a_h_cmd } },
+    { MODKEY|ALTKEY,                XK_i,      spawn,          {.v = m_a_i_cmd } },
     { MODKEY|ALTKEY,                XK_k,      spawn,          {.v = m_a_k_cmd } },
     { MODKEY|ALTKEY,                XK_l,      spawn,          {.v = m_a_l_cmd } },
     { MODKEY|ALTKEY,                XK_m,      spawn,          {.v = m_a_m_cmd } },
@@ -137,11 +147,15 @@ static Key keys[] = {
     { MODKEY|ALTKEY,                XK_x,      spawn,          {.v = m_a_x_cmd } },
     { MODKEY|ALTKEY,                XK_y,      spawn,          {.v = m_a_y_cmd } },
     { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_c,      spawn,          {.v = m_a_s_c_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_k,      spawn,          {.v = m_a_s_k_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_o,      spawn,          {.v = m_a_s_o_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_r,      spawn,          {.v = m_a_s_r_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_s,      spawn,          {.v = m_a_s_s_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_t,      spawn,          {.v = m_a_s_t_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_u,      spawn,          {.v = m_a_s_u_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_w,      spawn,          {.v = m_a_s_w_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_x,      spawn,          {.v = m_a_s_x_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_y,      spawn,          {.v = m_a_s_y_cmd } },
 	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = stcmd } },
 	{ 0,                            XK_Print,  spawn,          {.v = m_a_p_cmd } },

@@ -43,3 +43,13 @@ Um die Status-Informationen auf der Statuszeile darzustellen, kannst du etwas in
 Konfiguration
 -------------
 Die Konfiguration von dwm wird angepasst, durch Erstellung einer angepassten config.h und der (Re-)Compilation des Quellcodes.
+
+
+Anpassungen
+-----------
+Diese Version von dwm verfügt über die folgenden Patches:
+- pertag
+- bottom stack
+- monocle count
+- nextprev
+

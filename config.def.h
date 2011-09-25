@@ -104,9 +104,9 @@ static const char *m_a_s_z_cmd[]  = { "zim", NULL };
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = stcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = sttcshcmd } },
 	{ MODKEY|ALTKEY,                XK_Return, spawn,          {.v = stfishcmd } },
-	{ MODKEY|ALTKEY|ShiftMask,      XK_Return, spawn,          {.v = sttcshcmd } },
+	{ MODKEY|ALTKEY|ShiftMask,      XK_Return, spawn,          {.v = stcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

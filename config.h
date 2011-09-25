@@ -54,6 +54,9 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "uxterm", NULL };
 static const char *stcmd[]  = { "st", NULL };
+static const char *stfishcmd[]  = { "st", "-e", "/usr/bin/fish", NULL };
+static const char *sttcshcmd[]  = { "st", "-e", "/bin/tcsh", NULL };
+/* Programme die aufgerufen werden per Super+Alt+Taste */
 static const char *m_a_a_cmd[]  = { "st", "-e", "abook", NULL };
 static const char *m_a_c_cmd[]  = { "chromium", NULL };
 static const char *m_a_d_cmd[]  = { "dwb", NULL };
@@ -61,7 +64,8 @@ static const char *m_a_e_cmd[]  = { "st", "-e", "torify", "mutt", NULL };
 static const char *m_a_g_cmd[]  = { "gvim", NULL };
 static const char *m_a_f_cmd[]  = { "firefox", NULL };
 static const char *m_a_h_cmd[]  = { "hotot", NULL };
-static const char *m_a_i_cmd[]  = { "uxterm", "-fg", "white", "-bg", "red", "-e", "identica", NULL };
+static const char *m_a_i_cmd[]  = { "st", "-e", "irssi", NULL };
+static const char *m_a_j_cmd[]  = { "jumanji", NULL };
 static const char *m_a_k_cmd[]  = { "keepassx", NULL };
 static const char *m_a_l_cmd[]  = { "xflock4", NULL };
 static const char *m_a_m_cmd[]  = { "uxterm", "-e", "mc", NULL };
@@ -72,15 +76,19 @@ static const char *m_a_q_cmd[]  = { "qorganizer", NULL };
 static const char *m_a_r_cmd[]  = { "ristretto", NULL };
 static const char *m_a_s_cmd[]  = { "surf", NULL };
 static const char *m_a_t_cmd[]  = { "thunar", NULL };
-static const char *m_a_u_cmd[]  = { "uzbl-browser", NULL };
+static const char *m_a_u_cmd[]  = { "uzbl-tabbed", NULL };
 static const char *m_a_v_cmd[]  = { "vlc", NULL };
 static const char *m_a_w_cmd[]  = { "uxterm", "-fg", "black", "-bg", "white", "-e", "wicd-curses", NULL };
 static const char *m_a_y_cmd[]  = { "'synclient touchpadoff=1'", NULL };
 static const char *m_a_x_cmd[]  = { "xchat", NULL };
-static const char *m_a_z_cmd[]  = { "zim", NULL };
+static const char *m_a_z_cmd[]  = { "zathura", NULL };
+/* Programme die aufgerufen werden per Super+ALT+STRG+Taste */
+static const char *m_a_c_r_cmd[]  = { "st", "-e", "ranger", NULL };
+/* Programme die aufgerufen werden per Super+ALT+Umschalten+Taste */
 static const char *m_a_s_c_cmd[]  = { "claws-mail", NULL };
 static const char *m_a_s_d_cmd[]  = { "deluge", NULL };
 static const char *m_a_s_g_cmd[]  = { "gimp", NULL };
+static const char *m_a_s_i_cmd[]  = { "uxterm", "-fg", "white", "-bg", "red", "-e", "identica", NULL };
 static const char *m_a_s_k_cmd[]  = { "kaffeine", NULL };
 static const char *m_a_s_m_cmd[]  = { "minetest", NULL };
 static const char *m_a_s_o_cmd[]  = { "okular", NULL };
@@ -91,12 +99,14 @@ static const char *m_a_s_u_cmd[]  = { "unison-gtk2", NULL };
 static const char *m_a_s_w_cmd[]  = { "uxterm", "-fg", "white", "-bg", "blue", "-e", "ctw", "--refresh=10", "GMXX0067", NULL };
 static const char *m_a_s_x_cmd[]  = { "st", "-e", "telecomix", NULL };
 static const char *m_a_s_y_cmd[]  = { "'synclient touchpadoff=0'", NULL };
-static const char *m_a_s_z_cmd[]  = { "zathura", NULL };
+static const char *m_a_s_z_cmd[]  = { "zim", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = stcmd } },
+	{ MODKEY|ALTKEY,                XK_Return, spawn,          {.v = stfishcmd } },
+	{ MODKEY|ALTKEY|ShiftMask,      XK_Return, spawn,          {.v = sttcshcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -131,6 +141,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 // Selbsterstellte Kürzel
+/* Programme starten per Super+Alt+Taste */
     { MODKEY|ALTKEY,                XK_a,      spawn,          {.v = m_a_a_cmd } },
     { MODKEY|ALTKEY,                XK_c,      spawn,          {.v = m_a_c_cmd } },
     { MODKEY|ALTKEY,                XK_d,      spawn,          {.v = m_a_d_cmd } },
@@ -139,6 +150,7 @@ static Key keys[] = {
     { MODKEY|ALTKEY,                XK_g,      spawn,          {.v = m_a_g_cmd } },
     { MODKEY|ALTKEY,                XK_h,      spawn,          {.v = m_a_h_cmd } },
     { MODKEY|ALTKEY,                XK_i,      spawn,          {.v = m_a_i_cmd } },
+    { MODKEY|ALTKEY,                XK_j,      spawn,          {.v = m_a_j_cmd } },
     { MODKEY|ALTKEY,                XK_k,      spawn,          {.v = m_a_k_cmd } },
     { MODKEY|ALTKEY,                XK_l,      spawn,          {.v = m_a_l_cmd } },
     { MODKEY|ALTKEY,                XK_m,      spawn,          {.v = m_a_m_cmd } },
@@ -155,9 +167,13 @@ static Key keys[] = {
     { MODKEY|ALTKEY,                XK_x,      spawn,          {.v = m_a_x_cmd } },
     { MODKEY|ALTKEY,                XK_y,      spawn,          {.v = m_a_y_cmd } },
     { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
+/* Programme starten per Super+ALT+STRG+Taste */
+    { MODKEY|ALTKEY|ControlMask,    XK_r,      spawn,          {.v = m_a_c_r_cmd } },
+/* Programme starten per Super+ALT+Umschalten+Taste */
     { MODKEY|ALTKEY|ShiftMask,      XK_c,      spawn,          {.v = m_a_s_c_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_d,      spawn,          {.v = m_a_s_d_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_g,      spawn,          {.v = m_a_s_g_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_i,      spawn,          {.v = m_a_s_i_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_k,      spawn,          {.v = m_a_s_k_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_m,      spawn,          {.v = m_a_s_m_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_o,      spawn,          {.v = m_a_s_o_cmd } },
@@ -169,7 +185,7 @@ static Key keys[] = {
     { MODKEY|ALTKEY|ShiftMask,      XK_x,      spawn,          {.v = m_a_s_x_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_y,      spawn,          {.v = m_a_s_y_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_z,      spawn,          {.v = m_a_s_z_cmd } },
-	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = stcmd } },
+	{ MODKEY|ControlMask,           XK_Return, spawn,          {.v = termcmd } },
 	{ 0,                            XK_Print,  spawn,          {.v = m_a_p_cmd } },
 };
 

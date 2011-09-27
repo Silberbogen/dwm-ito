@@ -53,7 +53,7 @@ static const Layout layouts[] = {
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "uxterm", NULL };
-static const char *stcmd[]  = { "st", NULL };
+static const char *stcmd[]  = { "st", "-e", "/bin/zsh", NULL };
 static const char *stfishcmd[]  = { "st", "-e", "/usr/bin/fish", NULL };
 static const char *sttcshcmd[]  = { "st", "-e", "/bin/tcsh", NULL };
 /* Programme die aufgerufen werden per Super+Alt+Taste */
@@ -97,7 +97,7 @@ static const char *m_a_s_s_cmd[]  = { "speedcrunch", NULL };
 static const char *m_a_s_t_cmd[]  = { "uxterm", "-fg", "white", "-bg", "blue", "-e", "twitter", NULL };
 static const char *m_a_s_u_cmd[]  = { "unison-gtk2", NULL };
 static const char *m_a_s_w_cmd[]  = { "uxterm", "-fg", "white", "-bg", "blue", "-e", "ctw", "--refresh=10", "GMXX0067", NULL };
-static const char *m_a_s_x_cmd[]  = { "st", "-e", "telecomix", NULL };
+static const char *m_a_s_x_cmd[]  = { "xmind", NULL };
 static const char *m_a_s_y_cmd[]  = { "'synclient touchpadoff=0'", NULL };
 static const char *m_a_s_z_cmd[]  = { "zim", NULL };
 

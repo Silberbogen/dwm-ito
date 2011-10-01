@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+//static const char font[]            = "-*-Inconsolata-r-*-*-24-*-*-*-*-*-*-*";
 static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#cccccc";
 static const char normbgcolor[]     = "#cccccc";
@@ -20,7 +21,7 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+//	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
@@ -58,7 +59,7 @@ static const char *stfishcmd[]  = { "st", "-e", "/usr/bin/fish", NULL };
 static const char *sttcshcmd[]  = { "st", "-e", "/bin/tcsh", NULL };
 /* Programme die aufgerufen werden per Super+Alt+Taste */
 static const char *m_a_a_cmd[]  = { "st", "-e", "abook", NULL };
-static const char *m_a_c_cmd[]  = { "chromium", NULL };
+static const char *m_a_c_cmd[]  = { "torchromium", NULL };
 static const char *m_a_d_cmd[]  = { "dwb", NULL };
 static const char *m_a_e_cmd[]  = { "st", "-e", "torify", "mutt", NULL };
 static const char *m_a_g_cmd[]  = { "gvim", NULL };
@@ -79,7 +80,7 @@ static const char *m_a_t_cmd[]  = { "thunar", NULL };
 static const char *m_a_u_cmd[]  = { "uzbl-tabbed", NULL };
 static const char *m_a_v_cmd[]  = { "vlc", NULL };
 static const char *m_a_w_cmd[]  = { "uxterm", "-fg", "black", "-bg", "white", "-e", "wicd-curses", NULL };
-static const char *m_a_y_cmd[]  = { "'synclient touchpadoff=1'", NULL };
+static const char *m_a_y_cmd[]  = { "synclient", "touchpadoff=1", NULL };
 static const char *m_a_x_cmd[]  = { "xchat", NULL };
 static const char *m_a_z_cmd[]  = { "zathura", NULL };
 /* Programme die aufgerufen werden per Super+ALT+STRG+Taste */
@@ -98,15 +99,15 @@ static const char *m_a_s_t_cmd[]  = { "uxterm", "-fg", "white", "-bg", "blue", "
 static const char *m_a_s_u_cmd[]  = { "unison-gtk2", NULL };
 static const char *m_a_s_w_cmd[]  = { "uxterm", "-fg", "white", "-bg", "blue", "-e", "ctw", "--refresh=10", "GMXX0067", NULL };
 static const char *m_a_s_x_cmd[]  = { "xmind", NULL };
-static const char *m_a_s_y_cmd[]  = { "'synclient touchpadoff=0'", NULL };
+static const char *m_a_s_y_cmd[]  = { "synclient", "touchpadoff=0", NULL };
 static const char *m_a_s_z_cmd[]  = { "zim", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = sttcshcmd } },
+	{ MODKEY,                       XK_Return, spawn,          {.v = stcmd } },
 	{ MODKEY|ALTKEY,                XK_Return, spawn,          {.v = stfishcmd } },
-	{ MODKEY|ALTKEY|ShiftMask,      XK_Return, spawn,          {.v = stcmd } },
+	{ MODKEY|ALTKEY|ShiftMask,      XK_Return, spawn,          {.v = sttcshcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

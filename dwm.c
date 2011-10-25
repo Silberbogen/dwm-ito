@@ -1623,7 +1623,8 @@ showhide(Client *c) {
 	}
 	else { /* hide clients bottom up */
 		showhide(c->snext);
-		XMoveWindow(dpy, c->win, c->x + 2 * sw, c->y);
+		// XMoveWindow(dpy, c->win, c->x + 2 * sw, c->y); // enthält Corner-Burg
+        XMoveWindow(dpy, c->win, c->w * -2, c->y); // Umgeht Corner-Bug durch Darstellung im ungemappten Bereich
 	}
 }
 

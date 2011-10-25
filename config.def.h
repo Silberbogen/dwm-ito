@@ -1,6 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
+//static const char font[]            = "-*-Inconsolata-r-*-*-24-*-*-*-*-*-*-*";
 static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
 static const char normbordercolor[] = "#cccccc";
 static const char normbgcolor[]     = "#cccccc";
@@ -24,7 +25,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact      = 0.65; /* factor of master area size [0.05..0.95] */
+static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 
 static const Layout layouts[] = {
@@ -58,17 +59,17 @@ static const char *stfishcmd[]  = { "st", "-e", "/usr/bin/fish", NULL };
 static const char *sttcshcmd[]  = { "st", "-e", "/bin/tcsh", NULL };
 /* Programme die aufgerufen werden per Super+Alt+Taste */
 static const char *m_a_a_cmd[]  = { "st", "-e", "abook", NULL };
-static const char *m_a_c_cmd[]  = { "torchromium", NULL };
-static const char *m_a_d_cmd[]  = { "dwb", NULL };
+static const char *m_a_c_cmd[]  = { "claws-mail", NULL };
+static const char *m_a_d_cmd[]  = { "deluge", NULL };
 static const char *m_a_e_cmd[]  = { "st", "-e", "torify", "mutt", NULL };
-static const char *m_a_g_cmd[]  = { "gvim", NULL };
 static const char *m_a_f_cmd[]  = { "firefox", NULL };
+static const char *m_a_g_cmd[]  = { "gvim", NULL };
 static const char *m_a_h_cmd[]  = { "hotot", NULL };
 static const char *m_a_i_cmd[]  = { "st", "-e", "irssi", NULL };
 static const char *m_a_j_cmd[]  = { "jumanji", NULL };
 static const char *m_a_k_cmd[]  = { "keepassx", NULL };
 static const char *m_a_l_cmd[]  = { "xflock4", NULL };
-static const char *m_a_m_cmd[]  = { "uxterm", "-e", "mc", NULL };
+static const char *m_a_m_cmd[]  = { "uxterm", "-e", "mc",  NULL };
 static const char *m_a_n_cmd[]  = { "cherrytree", NULL };
 static const char *m_a_o_cmd[]  = { "okular", NULL };
 static const char *m_a_p_cmd[]  = { "scrot", NULL };
@@ -83,10 +84,14 @@ static const char *m_a_y_cmd[]  = { "synclient", "touchpadoff=1", NULL };
 static const char *m_a_x_cmd[]  = { "xchat", NULL };
 static const char *m_a_z_cmd[]  = { "zathura", NULL };
 /* Programme die aufgerufen werden per Super+ALT+STRG+Taste */
+static const char *m_a_c_m_cmd[]  = { "st", "-e", "mc", NULL };
 static const char *m_a_c_r_cmd[]  = { "st", "-e", "ranger", NULL };
+static const char *m_a_c_t_cmd[]  = { "uxterm", "-fg", "black", "-bg", "white", "-e", "telecomix", NULL };
+static const char *m_a_c_w_cmd[]  = { "uxterm", "-fg", "black", "-bg", "white", "-e", "w3m spiegel.de", NULL };
 /* Programme die aufgerufen werden per Super+ALT+Umschalten+Taste */
-static const char *m_a_s_c_cmd[]  = { "claws-mail", NULL };
-static const char *m_a_s_d_cmd[]  = { "deluge", NULL };
+static const char *m_a_s_c_cmd[]  = { "torchromium", NULL };
+static const char *m_a_s_d_cmd[]  = { "dwb", NULL };
+static const char *m_a_s_f_cmd[]  = { "flands", NULL };
 static const char *m_a_s_g_cmd[]  = { "gimp", NULL };
 static const char *m_a_s_i_cmd[]  = { "uxterm", "-fg", "white", "-bg", "red", "-e", "identica", NULL };
 static const char *m_a_s_k_cmd[]  = { "kaffeine", NULL };
@@ -168,10 +173,14 @@ static Key keys[] = {
     { MODKEY|ALTKEY,                XK_y,      spawn,          {.v = m_a_y_cmd } },
     { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
 /* Programme starten per Super+ALT+STRG+Taste */
+    { MODKEY|ALTKEY|ControlMask,    XK_r,      spawn,          {.v = m_a_c_m_cmd } },
     { MODKEY|ALTKEY|ControlMask,    XK_r,      spawn,          {.v = m_a_c_r_cmd } },
+    { MODKEY|ALTKEY|ControlMask,    XK_t,      spawn,          {.v = m_a_c_t_cmd } },
+    { MODKEY|ALTKEY|ControlMask,    XK_w,      spawn,          {.v = m_a_c_w_cmd } },
 /* Programme starten per Super+ALT+Umschalten+Taste */
     { MODKEY|ALTKEY|ShiftMask,      XK_c,      spawn,          {.v = m_a_s_c_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_d,      spawn,          {.v = m_a_s_d_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_f,      spawn,          {.v = m_a_s_f_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_g,      spawn,          {.v = m_a_s_g_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_i,      spawn,          {.v = m_a_s_i_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_k,      spawn,          {.v = m_a_s_k_cmd } },

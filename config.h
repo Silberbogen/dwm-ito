@@ -10,6 +10,8 @@ static const char selbgcolor[]      = "#005577";
 static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
+static const unsigned int systrayspacing = 2;   /* systray spacing */
+static const Bool showsystray       = True;     /* False means no systray */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
@@ -69,7 +71,7 @@ static const char *m_a_m_cmd[]  = { "vlc", NULL };
 static const char *m_a_n_cmd[]  = { "nitrogen", "--restore", NULL };
 static const char *m_a_p_cmd[]  = { "trackpad-toggle.sh", NULL };
 static const char *m_a_r_cmd[]  = { "rednotebook_switcher", NULL };
-static const char *m_a_s_cmd[]  = { "gksudo", "synaptic", NULL };
+static const char *m_a_s_cmd[]  = { "gksudo synaptic", NULL };
 static const char *m_a_t_cmd[]  = { "terminator", NULL };
 static const char *m_a_u_cmd[]  = { "unison-gtk", NULL };
 static const char *m_a_v_cmd[]  = { "pavucontrol", NULL };
@@ -79,7 +81,6 @@ static const char *m_a_z_cmd[]  = { "zathura", NULL };
 
 /* Programme die aufgerufen werden per Super+ALT+Umschalten+Taste */
 static const char *m_a_s_e_cmd[]  = { "evince", NULL };
-static const char *m_a_s_s_cmd[]  = { "surf", NULL };
 static const char *m_a_s_v_cmd[]  = { "gvim", NULL };
 static const char *m_a_s_w_cmd[]  = { "dwb", NULL };
 
@@ -145,7 +146,6 @@ static Key keys[] = {
     { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
     /* Programme starten per Super+ALT+Umschalten+Taste */
     { MODKEY|ALTKEY|ShiftMask,      XK_e,      spawn,          {.v = m_a_s_e_cmd } },
-    { MODKEY|ALTKEY|ShiftMask,      XK_s,      spawn,          {.v = m_a_s_s_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_v,      spawn,          {.v = m_a_s_v_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_w,      spawn,          {.v = m_a_s_w_cmd } },
 };

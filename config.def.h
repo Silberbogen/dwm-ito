@@ -35,9 +35,9 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
+    { "[M]",      monocle },
     { "[]=",      tile },    /* first entry is default */
     { "><>",      NULL },    /* no layout function means floating behavior */
-    { "[M]",      monocle },
 };
 
 /* key definitions */
@@ -56,6 +56,10 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "terminator", NULL };
 
+/* Programme die aufgerufen werden per Super+Taste */
+static const char *m_s_cmd[]  = { "surf", NULL };
+static const char *m_v_cmd[]  = { "gvim", NULL };
+
 /* Programme die aufgerufen werden per Super+Alt+Taste */
 static const char *m_a_a_cmd[]  = { "incognito", NULL };
 static const char *m_a_b_cmd[]  = { "terminator", "-e", "bpythone", NULL };
@@ -71,7 +75,7 @@ static const char *m_a_m_cmd[]  = { "vlc", NULL };
 static const char *m_a_n_cmd[]  = { "nitrogen", "--restore", NULL };
 static const char *m_a_p_cmd[]  = { "trackpad-toggle.sh", NULL };
 static const char *m_a_r_cmd[]  = { "rednotebook_switcher", NULL };
-static const char *m_a_s_cmd[]  = { "gksudo synaptic", NULL };
+static const char *m_a_s_cmd[]  = { "gksudo", "synaptic", NULL };
 static const char *m_a_t_cmd[]  = { "terminator", NULL };
 static const char *m_a_u_cmd[]  = { "unison-gtk", NULL };
 static const char *m_a_v_cmd[]  = { "pavucontrol", NULL };
@@ -81,6 +85,7 @@ static const char *m_a_z_cmd[]  = { "zathura", NULL };
 
 /* Programme die aufgerufen werden per Super+ALT+Umschalten+Taste */
 static const char *m_a_s_e_cmd[]  = { "evince", NULL };
+static const char *m_a_s_s_cmd[]  = { "surf", NULL };
 static const char *m_a_s_v_cmd[]  = { "gvim", NULL };
 static const char *m_a_s_w_cmd[]  = { "dwb", NULL };
 
@@ -122,6 +127,11 @@ static Key keys[] = {
     TAGKEYS(                        XK_9,                      8)
     { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     // Selbsterstellte Kürzel
+
+/* Programme starten per Super+Alt+Taste */
+    { MODKEY,                       XK_s,      spawn,          {.v = m_s_cmd } },
+    { MODKEY,                       XK_v,      spawn,          {.v = m_v_cmd } },
+
 /* Programme starten per Super+Alt+Taste */
     { MODKEY|ALTKEY,                XK_a,      spawn,          {.v = m_a_a_cmd } },
     { MODKEY|ALTKEY,                XK_b,      spawn,          {.v = m_a_b_cmd } },
@@ -146,6 +156,7 @@ static Key keys[] = {
     { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
     /* Programme starten per Super+ALT+Umschalten+Taste */
     { MODKEY|ALTKEY|ShiftMask,      XK_e,      spawn,          {.v = m_a_s_e_cmd } },
+    { MODKEY|ALTKEY|ShiftMask,      XK_s,      spawn,          {.v = m_a_s_s_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_v,      spawn,          {.v = m_a_s_v_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_w,      spawn,          {.v = m_a_s_w_cmd } },
 };

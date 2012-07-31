@@ -116,6 +116,8 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
     { MODKEY,                       XK_Left,  view_adjacent,   {.i = -1 } },  // vorheriger Tag
     { MODKEY,                       XK_Right, view_adjacent,   {.i = +1 } },  // nächster Tag
+    { MODKEY,                       XK_Up,     focusstack,     {.i = +1 } },
+    { MODKEY,                       XK_Down,   focusstack,     {.i = -1 } },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)

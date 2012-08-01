@@ -1,0 +1,23 @@
+#!/bin/bash
+#Das Skript gehört nach /usr/local/bin
+export http_proxy="http://127.0.0.1:8118"
+conky -c ~/.conkyrc-dwm | while read -r; do xsetroot -name "$REPLY"; done &
+nitrogen --restore &
+xfce4-power-manager &
+xfce4-volumed &
+xscreensaver -no-splash &
+synclient TapButton1=1 &
+synclient TapButton2=2 &
+synclient VertEdgeScroll=1 &
+synclient HorizEdgeScroll=1 &
+synclient PalmDetect=1 &
+thunar --daemon &
+pnmixer &
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 &
+/usr/bin/gnome-keyring-daemon --start --components=ssh &
+/usr/bin/gnome-keyring-daemon --start --components=secrets &
+/usr/bin/gnome-keyring-daemon --start --components=pkcs11 &
+/usr/bin/gnome-keyring-daemon --start --components=gpg &
+nm-applet &
+~/.dropbox-dist/dropboxd &
+exec dwm

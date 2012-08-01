@@ -207,7 +207,7 @@ static void drawbar(Monitor *m);
 static void drawbars(void);
 static void drawsquare(Bool filled, Bool empty, Bool invert, unsigned long col[ColLast]);
 static void drawtext(const char *text, unsigned long col[ColLast], Bool invert);
-static void enternotify(XEvent *e);
+/* static void enternotify(XEvent *e); */
 static void expose(XEvent *e);
 static void focus(Client *c);
 static void focusin(XEvent *e);
@@ -306,7 +306,7 @@ static void (*handler[LASTEvent]) (XEvent *) = {
 	[ConfigureRequest] = configurerequest,
 	[ConfigureNotify] = configurenotify,
 	[DestroyNotify] = destroynotify,
-	[EnterNotify] = enternotify,
+/*	[EnterNotify] = enternotify, */ 
 	[Expose] = expose,
 	[FocusIn] = focusin,
 	[KeyPress] = keypress,
@@ -506,6 +506,7 @@ buttonpress(XEvent *e) {
 	}
 	else if((c = wintoclient(ev->window))) {
 		focus(c);
+		XAllowEvents(dpy, ReplayPointer, CurrentTime);
 		click = ClkClientWin;
 	}
 	for(i = 0; i < LENGTH(buttons); i++)
@@ -937,6 +938,7 @@ drawtext(const char *text, unsigned long col[ColLast], Bool invert) {
 		XDrawString(dpy, dc.drawable, dc.gc, x, y, buf, len);
 }
 
+/*
 void
 enternotify(XEvent *e) {
 	Client *c;
@@ -955,6 +957,7 @@ enternotify(XEvent *e) {
 		return;
 	focus(c);
 }
+*/
 
 void
 expose(XEvent *e) {
@@ -1145,11 +1148,11 @@ grabbuttons(Client *c, Bool focused) {
 						XGrabButton(dpy, buttons[i].button,
 						            buttons[i].mask | modifiers[j],
 						            c->win, False, BUTTONMASK,
-						            GrabModeAsync, GrabModeSync, None, None);
+						            GrabModeSync, GrabModeSync, None, None);
 		}
 		else
 			XGrabButton(dpy, AnyButton, AnyModifier, c->win, False,
-			            BUTTONMASK, GrabModeAsync, GrabModeSync, None, None);
+			            BUTTONMASK, GrabModeSync, GrabModeSync, None, None);
 	}
 }
 

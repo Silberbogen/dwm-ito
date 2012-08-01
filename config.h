@@ -62,7 +62,7 @@ static const char *m_w_cmd[]  = { "surf", NULL };
 
 /* Programme die aufgerufen werden per Super+Alt+Taste */
 static const char *m_a_a_cmd[]  = { "incognito", NULL };
-static const char *m_a_b_cmd[]  = { "st", "-e", "bpython", NULL };
+static const char *m_a_b_cmd[]  = { "st", "-e", "bpython3", NULL };
 static const char *m_a_c_cmd[]  = { "claws-mail", NULL };
 static const char *m_a_d_cmd[]  = { "deluge", NULL };
 static const char *m_a_e_cmd[]  = { "geany", NULL };

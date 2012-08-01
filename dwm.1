@@ -1,175 +1,244 @@
 .TH DWM 1 dwm\-VERSION
 .SH NAME
-dwm \- dynamic window manager
+dwm-ito \- ein angepasster dynamic window manager Klon
 .SH SYNOPSIS
 .B dwm
 .RB [ \-v ]
-.SH DESCRIPTION
-dwm is a dynamic window manager for X. It manages windows in tiled, monocle
-and floating layouts. Either layout can be applied dynamically, optimising the
-environment for the application in use and the task performed.
+.SH BESCHREIBUNG
+dwm ist ein dynamischer Fenstermanager für X. Er verwaltet Fenster in geteilten, monoklischen und fließenden Anordnungen. Die Anordnungen könenn entweder dynamisch zugewiesen oder optimiert für die Umgebung der Anwendungen in Bezug auf Verwendung oder Aufgaben genutzt werden.
 .P
-In tiled layouts windows are managed in a master and stacking area. The master
-area contains the window which currently needs most attention, whereas the
-stacking area contains all other windows. In monocle layout all windows are
-maximised to the screen size. In floating layout windows can be resized and
-moved freely. Dialog windows are always managed floating, regardless of the
-layout applied.
+In geteilten Anordnungen werden Fenstern verwaltet in einem Hauptbereich und einem Stapelbereich, wobei der Stapelbereich alle anderen Fenster beinhaltet. Der Hauptbereich enthält für gewöhnlich das Fenster, das momentan die meiste Aufmerksamkeit benötigt, während alle anderen Fenster im Stapelbereich ausgelagert sind. In der monoklischen Anordnung werden alle Fenster auf Bildschirmgröße (abzüglich der Fenstermanagerzeile) vergrößert, aber nur ein einziges angezeigt. In der fließenden Anordnung können Fenster frei bewegt und in ihrer Größe angepasst werden. Dialog-Fenster befinden sich stets in der fließenden Anordnung, ganz unabhängig davon, welche Anordnung ausgewählt wurde.
 .P
-Windows are grouped by tags. Each window can be tagged with one or multiple
-tags. Selecting certain tags displays all windows with these tags.
+Fenster werden gruppiert unter Tags (Lesezeichen, Schlagwörtern). Jedes Fenster kann einem oder mehreren Tags zugeordnet werden. Die Auswahl verschiedener Tags wird alle Fenster der Tags anzeigen.
 .P
-Each screen contains a small status bar which displays all available tags, the
-layout, the title of the focused window, and the text read from the root window
-name property, if the screen is focused. A floating window is indicated with an
-empty square and a maximised floating window is indicated with a filled square
-before the windows title.  The selected tags are indicated with a different
-color. The tags of the focused window are indicated with a filled square in the
-top left corner.  The tags which are applied to one or more windows are
-indicated with an empty square in the top left corner.
+Jeder Bildschirm enthält eine kleine Statuszeile die alle verfügbaren Tags anzeigt, die Anordnung, den Titel des fokussierten Fensters, und den Text der vom Root-Fenster-Namensbereich gelesen wird, wenn der Bildschirm fokussiert ist. 
+Ein fließendes Fenster wird darin dargestellt mit einem leeren Viereck, während ein maximiertes fliessendes Fenster mit einem ausgefüllten Viereck vor dem Fenstertitel angezeigt wird. Die ausgewählten Tags werden in einer anderen Farbe dargestellt. Die Tags des fokussierten Fensters werden mit einem gefüllten Viereck in der linken oberen Ecke dargestellt. Die Tags die einem oder mehreren Fenstern zugeordnet sind, werden mit einem leeren Viereck in der oberen linken Ecke dargestellt.
 .P
-dwm draws a small border around windows to indicate the focus state.
-.SH OPTIONS
+dwm zeichnet einen schmalen Rahmen um Fenster um anzuzeigen, das sie momentan über den Fokus verfügen.
+.SH OPTIONEN
 .TP
 .B \-v
-prints version information to standard output, then exits.
-.SH USAGE
-.SS Status bar
+gibt Versionsinformation über die Standardausgabe aus und beendet dwm dann.
+.SH VERWENDUNG
+.SS Statuszeile
 .TP
-.B X root window name
-is read and displayed in the status text area. It can be set with the
+.B X Root Fenstername
+wird gelesen und dargestellt im Statustext-Bereich. Er kann gesetzt werden über den
 .BR xsetroot (1)
-command.
+Befehl.
 .TP
-.B Button1
-click on a tag label to display all windows with that tag, click on the layout
-label toggles between tiled and floating layout.
+.B Taste1
+klicke auf einen Tag-Bezeichner um zu diesen Tag zu wechseln und dessen zugeordnete Fenster anzuzeigen. Klicke auf die Anordnungs-Bezeichnung um zwischen geteilter und fließended Anordnung zu wechseln.
 .TP
-.B Button3
-click on a tag label adds/removes all windows with that tag to/from the view.
+.B Taste3
+klicken auf einen Tag-Bezeichner um alle Fenster des Tags zur Ansicht hinzuzufügen/zu entfernen.
 .TP
-.B Mod1\-Button1
-click on a tag label applies that tag to the focused window.
+.B Mod4\-Taste1
+klicken auf einen Tag-Bezeichner fügt diesen dem fokussierten Fenster hinzu.
 .TP
-.B Mod1\-Button3
-click on a tag label adds/removes that tag to/from the focused window.
-.SS Keyboard commands
+.B Mod4\-Taste3
+klicken auf einen Tag-Bezeichner fügt diesen Tag zum fokussierten Fenster hinzu oder entfernt ihn davon.
+.SS Tastatur Befehle
 .TP
-.B Mod1\-Shift\-Return
-Start
-.BR uxterm (1).
+.B Mod4\-Eingabe
+Startet das st Terminalprogramm.
 .TP
-.B Mod1\-,
-Focus previous screen, if any.
+.B Mod4\-,
+Fokussiert den vorhergehenden Bildschirm, wenn möglich.
 .TP
-.B Mod1\-.
-Focus next screen, if any.
+.B Mod4\-.
+Fokussiert den nächsten Bildschirm, wenn möglich.
 .TP
-.B Mod1\-Shift\-,
-Send focused window to previous screen, if any.
+.B Mod4\-Umschalten\-,
+Sendet das fokussierte Fenster zum vorhergehenden Bildschirm, wenn möglich.
 .TP
-.B Mod1\-Shift\-.
-Send focused window to next screen, if any.
+.B Mod4\-Umschalten\-.
+Sendet das fokussierte Fenster zum nächsten Bildschirm, wenn möglich.
 .TP
-.B Mod1\-b
-Toggles bar on and off.
+.B Mod4\-b
+Schaltet die Statuszeile ein oder aus.
 .TP
-.B Mod1\-t
-Sets tiled layout.
+.B Mod4\-t
+Setzt die geteilte Anordnung.
 .TP
-.B Mod1\-f
-Sets floating layout.
+.B Mod4\-f
+Setzt die fließende Anordnung.
 .TP
-.B Mod1\-m
-Sets monocle layout.
+.B Mod4\-m
+Setzt die nur-ein-Fenster (Monokel) Anordnung.
 .TP
-.B Mod1\-space
-Toggles between current and previous layout.
+.B Mod4\-space
+Wechselt zwischen der aktuellen und der vorhergehenden Anordnung.
 .TP
-.B Mod1\-j
-Focus next window.
+.B Mod4\-j
+Fokussiert das nächste Fenster.
 .TP
-.B Mod1\-k
-Focus previous window.
+.B Mod4\-k
+Fokussiert das vorhergehende Fenster.
 .TP
-.B Mod1\-i
-Increase clients in master area.
+.B Mod4\-i
+Erhöht die Anzahl an Klienten im Hauptbereich.
 .TP
-.B Mod1\-d
-Decrease clients in master area.
+.B Mod4\-d
+Vermindert die Anzahl an Klienten im Hauptbereich.
 .TP
-.B Mod1\-l
-Increase master area size.
+.B Mod4\-h
+Vermindert die Größe des Hauptbereichs.
 .TP
-.B Mod1\-h
-Decrease master area size.
+.B Mod4\-l
+Erhöht die Größe des Hauptbereichs.
 .TP
-.B Mod1\-Return
-Zooms/cycles focused window to/from master area (tiled layouts only).
+.B Mod4\-Umschalten\-Eingabe
+Zoomt/zyklisch fokussierte Fenster in das/aus dem Hauptbereich (nur in der geteilten Anordnung).
 .TP
-.B Mod1\-Shift\-c
-Close focused window.
+.B Mod4\-Umschalten\-c
+Schließt das fokussierte Fenster (wodurch nicht unbedingt das Programm beendet wird).
 .TP
-.B Mod1\-Shift\-space
-Toggle focused window between tiled and floating state.
+.B Mod4\-Umschalten\-space
+Wechselt das fokussierte Fenster zwischen dem geteilten und der fließenden Anordnung.
 .TP
-.B Mod1\-Tab
-Toggles to the previously selected tags.
+.B Mod4\-Tab
+Wechselt zum zuvor ausgewählten Tag.
 .TP
-.B Mod1\-Shift\-[1..n]
-Apply nth tag to focused window.
+.B Mod4\-Pfeiltaste-Links
+Wechselt einen Tag nach links. Von der 1 aus wird zu 9 gewechselt. 
 .TP
-.B Mod1\-Shift\-0
-Apply all tags to focused window.
+.B Mod4\-Pfeiltaste-Rechts
+Wechselt einen Tag nach rechts. Von der 9 aus wird zu 1 gewechselt.
 .TP
-.B Mod1\-Control\-Shift\-[1..n]
-Add/remove nth tag to/from focused window.
+.B Mod4\-Pfeiltaste-Hoch
+Wechselt zum vorhergehenden Fenster im aktuellen Tag.
 .TP
-.B Mod1\-[1..n]
-View all windows with nth tag.
+.B Mod4\-Pfeiltaste-Runter
+Wechselt zum nachfolgenden Fenster im aktuellen Tag.
 .TP
-.B Mod1\-0
-View all windows with any tag.
+.B Mod4\-Umschalten\-[1..n]
+Ordne den Tag 1 (2, 3 ... n) dem fokussierten Fenster zu.
 .TP
-.B Mod1\-Control\-[1..n]
-Add/remove all windows with nth tag to/from the view.
+.B Mod4\-Umschalten\-0
+Ordne alle Tags dem fokussierten Fenster zu (wodurch es Teil von allen Tags wird).
 .TP
-.B Mod1\-Shift\-q
-Quit dwm.
-.SS Mouse commands
+.B Mod4\-Control\-Umschalten\-[1..n]
+Füge/entferne den Tag 1 (2, 3 ... n) dem fokussierten Fenster hinzu.
 .TP
-.B Mod1\-Button1
-Move focused window while dragging. Tiled windows will be toggled to the floating state.
+.B Mod4\-[1..n]
+Zeige alle Fenster des Tag 1 (2, 3, ...).
 .TP
-.B Mod1\-Button2
-Toggles focused window between floating and tiled state.
+.B Mod4\-0
+Zeige alle Fenster (Expose) irgendeines Tags.
 .TP
-.B Mod1\-Button3
-Resize focused window while dragging. Tiled windows will be toggled to the floating state.
-.SH CUSTOMIZATION
-dwm is customized by creating a custom config.h and (re)compiling the source
-code. This keeps it fast, secure and simple.
-.SH SEE ALSO
+.B Mod4\-Control\-[1..n]
+Füge/entferne alle Fenster mit dem Tag 1 (2, 3 ... n) der Ansicht hinzu.
+.TP
+.B Mod4\-Umschalten\-q
+Verlasse dwm.
+.SS Maus Befehle
+.TP
+.B Mod4\-Taste1
+Bewege das fokussierte Fenster, während du es festhältst. Geteilte Fenster werden in den fließenden Status versetzt.
+.TP
+.B Mod4\-Taste2
+Wechselt das fokussierte Fenster zwischen dem fließenden und geteilten Status.
+.TP
+.B Mod4\-Taste3
+Verändere die Größe des fokussierten Fensters, während du es festhältst. Geteilte Fenster werden in den fließenden Status versetzt.
+.SS Progammstart Tastenkombinationen
+.TP
+.B Druck/S-Abf
+Speichert ein Bildschirmfoto der aktuellen Ansicht.
+.TP
+.B Mod4\-e
+Startet den Editor gVim
+.TP
+.B Mod4\-p
+Öffnet den Programmstarter Dmenu.
+.TP
+.B Mod4\-w
+Startet den Webbrowser Surf
+.TP
+.B Mod4\-ALT\-a
+Startet Chromium im Anonymitätsmodus.
+.TP
+.B Mod4\-ALT\-b
+Startet BPython3 in einem Terminal.
+.TP
+.B Mod4\-ALT\-c
+Starte den Claws-Mail Emailklienten.
+.TP
+.B Mod4\-ALT\-d
+Starte den Deluge Bittorrentklienten.
+.TP
+.B Mod4\-ALT\-e
+Startet den Editor Geany.
+.TP
+.B Mod4\-ALT\-f
+Startet den Filemanager Thunar.
+.TP
+.B Mod4\-ALT\-g
+Startet das Grafikprogramm GIMP.
+.TP
+.B Mod4\-ALT\-i
+Startet IDLE 3 als Python-Interpreter.
+.TP
+.B Mod4\-ALT\-k
+Startet KeePassX als Passwortsafe.
+.TP
+.B Mod4\-ALT\-l
+Startet Crunchbang-Lock zum Sperren der aktuellen Sitzung.
+.TP
+.B Mod4\-ALT\-m
+Startet den Multimediaplayer VLC.
+.TP
+.B Mod4\-ALT\-n
+Startet Nitrogen zum Auswählen eines neuen Hintergrundbildes.
+.TP
+.B Mod4\-ALT\-p
+Schaltet das Trackpad abwechselnd ein oder aus.
+.TP
+.B Mod4\-ALT\-r
+Startet oder beendet Rednotebook.
+.TP
+.B Mod4\-ALT\-s
+Startet die Softwareverwaltung Synaptic.
+.TP
+.B Mod4\-ALT\-t
+Startet den Terminalemulator Terminator.
+.TP
+.B Mod4\-ALT\-u
+Startet Unison zur Datensynchronisation.
+.TP
+.B Mod4\-ALT\-v
+Startet Pavucontrol, ein Lautstärkerugilierungs-/Mixerprogramm.
+.TP
+.B Mod4\-ALT\-w
+Startet den für das System ausgewählten X-WWW-BROWSER.
+.TP
+.B Mod4\-ALT\-x
+Startet XChat.
+.TP
+.B Mod4\-ALT\-z
+Startet Zathura als PDF-Leseprogramm.
+.TP
+.B Mod4\-ALT\-Umschalten\-e
+Startet Evince als PDF-Leseprogramm.
+.TP
+.B Mod4\-ALT\-Umschalten\-f
+Startet den Filemanager Midnight Commander in einem Terminal.
+.SH ANPASSUNGEN
+dwm wird angepasst, indem eine angepasste config.h erstellt und der Quellcode (re)compiliert wird. Dies sorgt dafür, daß dwm schnell, sicher und einfach bleibt.
+.SH SIEHE AUCH
 .BR dmenu (1)
-.SH BUGS
-Java applications which use the XToolkit/XAWT backend may draw grey windows
-only. The XToolkit/XAWT backend breaks ICCCM-compliance in recent JDK 1.5 and early
-JDK 1.6 versions, because it assumes a reparenting window manager. Possible workarounds
-are using JDK 1.4 (which doesn't contain the XToolkit/XAWT backend) or setting the
-environment variable
+.SH FEHLER / BUGS
+Java-Anwendungen, welche das XToolkit/XAWT-Backend verwenden, zeichnen eventuell nur graue Fenster. Das XToolkit/XAWT-Backend zerbricht die ICCCM-Verwendbarkeit in älteren JDK 1.5 und frühen JDK 1.6 versionen, da es einen reparenting Fenstermanager voraussetzt. Möglichkeiten dies zu umgehen bestehen darin, JDK 1.4 zu verwenden (welches das XToolkit/XAWT-Backend nicht enthält) oder die Umgebungs-Variable
 .BR AWT_TOOLKIT=MToolkit
-(to use the older Motif backend instead) or running
+(um das ältere Motif-Backend stattdessen) zu verwenden oder
 .B xprop -root -f _NET_WM_NAME 32a -set _NET_WM_NAME LG3D
-or
+oder
 .B wmname LG3D
-(to pretend that a non-reparenting window manager is running that the
-XToolkit/XAWT backend can recognize) or when using OpenJDK setting the environment variable
+(um bekanntzugeben, daß ein nicht-reparenting Fenstermanager läuft, den das XToolkit/XAWT-Backend kennt) oder wenn die OpenJDK Einstellung der Umgebungs-Variable
 .BR _JAVA_AWT_WM_NONREPARENTING=1 .
+genutzt wird.
 .P
-GTK 2.10.9+ versions contain a broken
-.BR Save\-As
-file dialog implementation,
-which requests to reconfigure its window size in an endless loop. However, its
-window is still respondable during this state, so you can simply ignore the flicker
-until a new GTK version appears, which will fix this bug, approximately
-GTK 2.10.12+ versions.
+GTK 2.10.9+ Versionen verfügen über eine zerbrochene
+.BR Speichern\-Als
+Datei-Dialog-Implementation, welche nachfragt, seine Fenstergröße zu rekonfigurieren, und das in einer Endlosschleife. Wie auch immer, das Fenster ist immer noch ansprechbar während dieses Zustands, man muß einfach nur das Flackern ignorieren, bis eine neue GTK Version erscheint, welche diesen Fehler behebt, voraussichtlich sind dies die GTK 2.10.12+ Versionen.

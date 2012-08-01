@@ -54,11 +54,12 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "terminator", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 /* Programme die aufgerufen werden per Super+Taste */
-static const char *m_s_cmd[]  = { "surf", NULL };
-static const char *m_v_cmd[]  = { "gvim", NULL };
+static const char *m_d_cmd[]  = { "thunar", NULL };
+static const char *m_e_cmd[]  = { "gvim", NULL };
+static const char *m_w_cmd[]  = { "surf", NULL };
 
 /* Programme die aufgerufen werden per Super+Alt+Taste */
 static const char *m_a_a_cmd[]  = { "incognito", NULL };
@@ -66,7 +67,7 @@ static const char *m_a_b_cmd[]  = { "terminator", "-e", "bpythone", NULL };
 static const char *m_a_c_cmd[]  = { "claws-mail", NULL };
 static const char *m_a_d_cmd[]  = { "deluge", NULL };
 static const char *m_a_e_cmd[]  = { "geany", NULL };
-static const char *m_a_f_cmd[]  = { "thunar", NULL };
+static const char *m_a_f_cmd[]  = { "st", "-e", "mc", NULL };
 static const char *m_a_g_cmd[]  = { "gimp", NULL };
 static const char *m_a_i_cmd[]  = { "idle3", "-s", "-i", NULL };
 static const char *m_a_k_cmd[]  = { "keepassx", NULL };
@@ -85,9 +86,6 @@ static const char *m_a_z_cmd[]  = { "zathura", NULL };
 
 /* Programme die aufgerufen werden per Super+ALT+Umschalten+Taste */
 static const char *m_a_s_e_cmd[]  = { "evince", NULL };
-static const char *m_a_s_s_cmd[]  = { "surf", NULL };
-static const char *m_a_s_v_cmd[]  = { "gvim", NULL };
-static const char *m_a_s_w_cmd[]  = { "dwb", NULL };
 
 static const char *print_cmd[]  = { "bildschirmfoto", NULL };
 
@@ -133,8 +131,9 @@ static Key keys[] = {
     // Selbsterstellte Kürzel
 
 /* Programme starten per Super+Alt+Taste */
-    { MODKEY,                       XK_s,      spawn,          {.v = m_s_cmd } },
-    { MODKEY,                       XK_v,      spawn,          {.v = m_v_cmd } },
+    { MODKEY,                       XK_d,      spawn,          {.v = m_d_cmd } },
+    { MODKEY,                       XK_e,      spawn,          {.v = m_e_cmd } },
+    { MODKEY,                       XK_w,      spawn,          {.v = m_w_cmd } },
 
 /* Programme starten per Super+Alt+Taste */
     { MODKEY|ALTKEY,                XK_a,      spawn,          {.v = m_a_a_cmd } },
@@ -161,9 +160,6 @@ static Key keys[] = {
 
     /* Programme starten per Super+ALT+Umschalten+Taste */
     { MODKEY|ALTKEY|ShiftMask,      XK_e,      spawn,          {.v = m_a_s_e_cmd } },
-    { MODKEY|ALTKEY|ShiftMask,      XK_s,      spawn,          {.v = m_a_s_s_cmd } },
-    { MODKEY|ALTKEY|ShiftMask,      XK_v,      spawn,          {.v = m_a_s_v_cmd } },
-    { MODKEY|ALTKEY|ShiftMask,      XK_w,      spawn,          {.v = m_a_s_w_cmd } },
 
     /* Programme starten per Einzeltaste */
     { 0,                            XK_Print,  spawn,          {.v = print_cmd } },

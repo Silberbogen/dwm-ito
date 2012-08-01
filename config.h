@@ -89,6 +89,8 @@ static const char *m_a_s_s_cmd[]  = { "surf", NULL };
 static const char *m_a_s_v_cmd[]  = { "gvim", NULL };
 static const char *m_a_s_w_cmd[]  = { "dwb", NULL };
 
+static const char *print_cmd[]  = { "bildschirmfoto", NULL };
+
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -156,11 +158,15 @@ static Key keys[] = {
     { MODKEY|ALTKEY,                XK_w,      spawn,          {.v = m_a_w_cmd } },
     { MODKEY|ALTKEY,                XK_x,      spawn,          {.v = m_a_x_cmd } },
     { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
+
     /* Programme starten per Super+ALT+Umschalten+Taste */
     { MODKEY|ALTKEY|ShiftMask,      XK_e,      spawn,          {.v = m_a_s_e_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_s,      spawn,          {.v = m_a_s_s_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_v,      spawn,          {.v = m_a_s_v_cmd } },
     { MODKEY|ALTKEY|ShiftMask,      XK_w,      spawn,          {.v = m_a_s_w_cmd } },
+
+    /* Programme starten per Einzeltaste */
+    { 0,                            XK_Print,  spawn,          {.v = print_cmd } },
 };
 
 /* button definitions */

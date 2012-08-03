@@ -6,18 +6,15 @@ nitrogen --restore &
 xfce4-power-manager &
 xfce4-volumed &
 xscreensaver -no-splash &
-(synclient TapButton1=1 && \
-synclient TapButton2=2 && \
-synclient VertEdgeScroll=1 && \
-synclient HorizEdgeScroll=1 && \
-synclient PalmDetect=1) &
 thunar --daemon &
 pnmixer &
 nm-applet &
-(/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
-/usr/bin/gnome-keyring-daemon --start --components=ssh && \
-/usr/bin/gnome-keyring-daemon --start --components=secrets && \
-/usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
-/usr/bin/gnome-keyring-daemon --start --components=gpg) &
+#(/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
+##/usr/bin/gnome-keyring-daemon --start --components=ssh && \
+#/usr/bin/gnome-keyring-daemon --start --components=secrets && \
+#/usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
+#/usr/bin/gnome-keyring-daemon --start --components=gpg) &
+synclient TapButton2=3 TabButton3=3 RBCornerButton=3 RTCornerButton=2 &
+orage &
 ~/.dropbox-dist/dropboxd &
 exec dwm

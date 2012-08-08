@@ -9,12 +9,10 @@ xscreensaver -no-splash &
 thunar --daemon &
 pnmixer &
 nm-applet &
-#(/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
-##/usr/bin/gnome-keyring-daemon --start --components=ssh && \
-#/usr/bin/gnome-keyring-daemon --start --components=secrets && \
-#/usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
-#/usr/bin/gnome-keyring-daemon --start --components=gpg) &
+(/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
+/usr/bin/gnome-keyring-daemon --start --components=ssh && \
+/usr/bin/gnome-keyring-daemon --start --components=secrets && \
+/usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
+/usr/bin/gnome-keyring-daemon --start --components=gpg) &
 synclient TapButton2=3 TabButton3=3 RBCornerButton=3 RTCornerButton=2 &
-orage &
-~/.dropbox-dist/dropboxd &
-exec dwm
+exec ck-launch-session dbus-launch dwm

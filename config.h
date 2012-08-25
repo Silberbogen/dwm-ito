@@ -23,9 +23,12 @@ static const Rule rules[] = {
      *  WM_CLASS(STRING) = instance, class
      *  WM_NAME(STRING) = title
      */
-    /* class      instance    title       tags mask     isfloating   monitor */
-    { "Gimp",     NULL,       NULL,       0,            True,        -1 },
-    { "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+    /* class           instance    title       tags mask          isfloating   monitor */
+    { "Gimp",          NULL,       NULL,       0,                 True,        -1 },
+    { "Firefox",       NULL,       NULL,       1 << 8,            False,       -1 },
+    { "Xchat",         NULL,       NULL,       128 << 0,          False,       -1 },
+    { "Pidgin",        NULL,       NULL,       64 << 0,           False,       -1 },
+    { "Thunderbird",   NULL,       NULL,       32 << 0,           False,       -1 },
 };
 
 /* layout(s) */
@@ -35,9 +38,9 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
     /* symbol     arrange function */
-    { "[M]",      monocle },
     { "[]=",      tile },    /* first entry is default */
     { "><>",      NULL },    /* no layout function means floating behavior */
+    { "[M]",      monocle },
 };
 
 /* key definitions */
@@ -54,7 +57,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "uxterm", "-fg", "dodgerblue1", "-bg", "grey21", NULL };
 
 /* Programme die aufgerufen werden per Super+Taste */
 static const char *m_e_cmd[]  = { "gvim", NULL };
@@ -62,21 +65,21 @@ static const char *m_w_cmd[]  = { "surf", NULL };
 
 /* Programme die aufgerufen werden per Super+Alt+Taste */
 static const char *m_a_a_cmd[]  = { "incognito", NULL };
-static const char *m_a_b_cmd[]  = { "st", "-e", "bpython3", NULL };
-static const char *m_a_c_cmd[]  = { "claws-mail", NULL };
+static const char *m_a_b_cmd[]  = { "uxterm", "-e", "bpython3", NULL };
+static const char *m_a_c_cmd[]  = { "thunderbird", NULL };
 static const char *m_a_d_cmd[]  = { "deluge", NULL };
-static const char *m_a_e_cmd[]  = { "geany", NULL };
+static const char *m_a_e_cmd[]  = { "emacs", NULL };
 static const char *m_a_f_cmd[]  = { "thunar", NULL };
 static const char *m_a_g_cmd[]  = { "gimp", NULL };
 static const char *m_a_i_cmd[]  = { "idle3", "-s", "-i", NULL };
 static const char *m_a_k_cmd[]  = { "keepassx", NULL };
-static const char *m_a_l_cmd[]  = { "cb-lock", NULL };
+static const char *m_a_l_cmd[]  = { "xflock4", NULL };
 static const char *m_a_m_cmd[]  = { "vlc", NULL };
 static const char *m_a_n_cmd[]  = { "nitrogen", NULL };
 static const char *m_a_p_cmd[]  = { "trackpad-toggle.sh", NULL };
 static const char *m_a_r_cmd[]  = { "rednotebook_switcher", NULL };
 static const char *m_a_s_cmd[]  = { "gksudo", "synaptic", NULL };
-static const char *m_a_t_cmd[]  = { "terminator", NULL };
+static const char *m_a_t_cmd[]  = { "xfce4-terminal", NULL };
 static const char *m_a_u_cmd[]  = { "unison-gtk", NULL };
 static const char *m_a_v_cmd[]  = { "pavucontrol", NULL };
 static const char *m_a_w_cmd[]  = { "x-www-browser", NULL };
@@ -85,7 +88,7 @@ static const char *m_a_z_cmd[]  = { "zathura", NULL };
 
 /* Programme die aufgerufen werden per Super+ALT+Umschalten+Taste */
 static const char *m_a_s_e_cmd[]  = { "evince", NULL };
-static const char *m_a_s_f_cmd[]  = { "st", "-e", "mc", NULL };
+static const char *m_a_s_f_cmd[]  = { "uxterm", "-e", "mc", NULL };
 
 static const char *print_cmd[]  = { "bildschirmfoto", NULL };
 

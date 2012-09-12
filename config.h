@@ -2,13 +2,19 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#535d6c";
-static const char selbgcolor[]      = "#535d6c";
-static const char selfgcolor[]      = "#eeeeee";
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+#static const char normbordercolor[] = "#444444";
+#static const char normbgcolor[]     = "#222222";
+#static const char normfgcolor[]     = "#bbbbbb";
+#static const char selbordercolor[]  = "#535d6c";
+#static const char selbgcolor[]      = "#535d6c";
+#static const char selfgcolor[]      = "#eeeeee";
+static const char normbordercolor[] = "#3F3F3F4";
+static const char normbgcolor[]     = "#3F3F3F";
+static const char normfgcolor[]     = "#DCDCCC";
+static const char selbordercolor[]  = "#CC9393";
+static const char selbgcolor[]      = "#CC9393";
+static const char selfgcolor[]      = "#6F6F6F";
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const Bool showsystray       = True;     /* False means no systray */
@@ -25,14 +31,14 @@ static const Rule rules[] = {
      */
     /* class           instance    title       tags mask          isfloating   monitor */
     { "Gimp",          NULL,       NULL,       0,                 True,        -1 },
-    { "Firefox",       NULL,       NULL,       1 << 8,            False,       -1 },
-    { "Xchat",         NULL,       NULL,       128 << 0,          False,       -1 },
-    { "Pidgin",        NULL,       NULL,       64 << 0,           False,       -1 },
-    { "Thunderbird",   NULL,       NULL,       32 << 0,           False,       -1 },
+//    { "Firefox",       NULL,       NULL,       1 << 8,            False,       -1 },
+//    { "Xchat",         NULL,       NULL,       128 << 0,          False,       -1 },
+//    { "Pidgin",        NULL,       NULL,       64 << 0,           False,       -1 },
+//    { "Thunderbird",   NULL,       NULL,       32 << 0,           False,       -1 },
 };
 
 /* layout(s) */
-static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact      = 0.50; /* factor of master area size [0.05..0.95] */
 static const int nmaster      = 1;    /* number of clients in master area */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 
@@ -73,7 +79,7 @@ static const char *m_a_f_cmd[]  = { "thunar", NULL };
 static const char *m_a_g_cmd[]  = { "gimp", NULL };
 static const char *m_a_i_cmd[]  = { "idle3", "-s", "-i", NULL };
 static const char *m_a_k_cmd[]  = { "keepassx", NULL };
-static const char *m_a_l_cmd[]  = { "xflock4", NULL };
+static const char *m_a_l_cmd[]  = { "slock", NULL };
 static const char *m_a_m_cmd[]  = { "vlc", NULL };
 static const char *m_a_n_cmd[]  = { "nitrogen", NULL };
 static const char *m_a_p_cmd[]  = { "trackpad-toggle.sh", NULL };

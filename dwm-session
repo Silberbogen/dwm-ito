@@ -1,18 +1,66 @@
 #!/bin/bash
 # Sollte in /usr/local/bin platziert werden
-export http_proxy="http://127.0.0.1:8118"
-conky -c ~/.conkyrc-dwm | while read -r; do xsetroot -name "$REPLY"; done &
+
+## GNOME PolicyKit and Keyring
+eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+
+## Set root window colour
+hsetroot -solid "#2E3436" &
+
+# change background picture
 nitrogen --restore &
-xfce4-power-manager &
-xfce4-volumed &
-xscreensaver -no-splash &
-thunar --daemon &
+
+# mixer laden
 pnmixer &
+
+## Enable hot corners
+#cb-hotcorners --daemon &
+
+## Enable power management
+xfce4-power-manager &
+
+## Start Thunar Daemon
+thunar --daemon &
+
+#conky für die Statuszeile
+conky -c ~/.conkyrc-dwm | while read -r; do xsetroot -name "$REPLY"; done &
+
+## Detect and configure touchpad. See 'man synclient' for more info.
+#if egrep -iq 'touchpad' /proc/bus/input/devices; then
+#    synclient VertEdgeScroll=1 &
+#    synclient TapButton1=1 &
+#fi
+
+## Start xscreensaver
+xscreensaver -no-splash &
+
+## Start Clipboard manager
+#(sleep 3s && parcellite) &
+(sleep 3s && clipit) &
+
+## cb-welcome - post-installation script, will not run in a live session and
+## only runs once. Safe to remove.
+#(sleep 10s && cb-welcome --firstrun) &
+
+## cb-fortune - have Statler say a little adage
+(sleep 120s && cb-fortune) &
+
+# Network-Manager-Applet laden
 nm-applet &
-(/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
+
+## GNOME PolicyKit and Keyring
+(\
+/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
 /usr/bin/gnome-keyring-daemon --start --components=ssh && \
 /usr/bin/gnome-keyring-daemon --start --components=secrets && \
-/usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
-/usr/bin/gnome-keyring-daemon --start --components=gpg) &
-synclient TapButton2=3 TabButton3=3 RBCornerButton=3 RTCornerButton=2 &
+usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
+/usr/bin/gnome-keyring-daemon --start --components=gpg \
+) &
+
+## Volume keys daemon
+xfce4-volumed &
+
+# Touchpad ausschalten
+synclient touchpadoff=1
+
 exec ck-launch-session dbus-launch dwm

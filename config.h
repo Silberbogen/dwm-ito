@@ -2,18 +2,18 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-#static const char normbordercolor[] = "#444444";
-#static const char normbgcolor[]     = "#222222";
-#static const char normfgcolor[]     = "#bbbbbb";
-#static const char selbordercolor[]  = "#535d6c";
-#static const char selbgcolor[]      = "#535d6c";
-#static const char selfgcolor[]      = "#eeeeee";
-static const char normbordercolor[] = "#3F3F3F4";
-static const char normbgcolor[]     = "#3F3F3F";
-static const char normfgcolor[]     = "#DCDCCC";
-static const char selbordercolor[]  = "#CC9393";
-static const char selbgcolor[]      = "#CC9393";
-static const char selfgcolor[]      = "#6F6F6F";
+//static const char normbordercolor[] = "#444444";
+//static const char normbgcolor[]     = "#222222";
+//static const char normfgcolor[]     = "#bbbbbb";
+//static const char selbordercolor[]  = "#535d6c";
+//static const char selbgcolor[]      = "#535d6c";
+//static const char selfgcolor[]      = "#eeeeee";
+static const char normbordercolor[] = "#7c7c7c";
+static const char normbgcolor[]     = "#959595";
+static const char normfgcolor[]     = "#444444";
+static const char selbordercolor[]  = "#959595";
+static const char selbgcolor[]      = "#959595";
+static const char selfgcolor[]      = "#252527";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -63,7 +63,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "uxterm", "-fg", "dodgerblue1", "-bg", "grey21", NULL };
+static const char *termcmd[]  = { "uxterm", "-fg", "black", "-bg", "gray", NULL };
 
 /* Programme die aufgerufen werden per Super+Taste */
 static const char *m_e_cmd[]  = { "gvim", NULL };

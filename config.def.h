@@ -2,13 +2,13 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-#static const char normbordercolor[] = "#444444";
-#static const char normbgcolor[]     = "#222222";
-#static const char normfgcolor[]     = "#bbbbbb";
-#static const char selbordercolor[]  = "#535d6c";
-#static const char selbgcolor[]      = "#535d6c";
-#static const char selfgcolor[]      = "#eeeeee";
-static const char normbordercolor[] = "#3F3F3F4";
+//static const char normbordercolor[] = "#444444";
+//static const char normbgcolor[]     = "#222222";
+//static const char normfgcolor[]     = "#bbbbbb";
+//static const char selbordercolor[]  = "#535d6c";
+//static const char selbgcolor[]      = "#535d6c";
+//static const char selfgcolor[]      = "#eeeeee";
+static const char normbordercolor[] = "#3F3F3F";
 static const char normbgcolor[]     = "#3F3F3F";
 static const char normfgcolor[]     = "#DCDCCC";
 static const char selbordercolor[]  = "#CC9393";

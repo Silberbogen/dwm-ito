@@ -1,6 +1,11 @@
 #!/bin/bash
 # Sollte in /usr/local/bin platziert werden
 
+# Clean up after GDM
+xprop -root -remove _NET_NUMBER_OF_DESKTOPS \
+      -remove _NET_DESKTOP_NAMES \
+      -remove _NET_CURRENT_DESKTOP 2> /dev/null
+
 ## GNOME PolicyKit and Keyring
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
 
@@ -10,8 +15,8 @@ hsetroot -solid "#2E3436" &
 # change background picture
 nitrogen --restore &
 
-# mixer laden
-pnmixer &
+## Volume control for systray
+(sleep 2s && pnmixer) &
 
 ## Enable hot corners
 #cb-hotcorners --daemon &
@@ -26,10 +31,11 @@ thunar --daemon &
 conky -c ~/.conkyrc-dwm | while read -r; do xsetroot -name "$REPLY"; done &
 
 ## Detect and configure touchpad. See 'man synclient' for more info.
-#if egrep -iq 'touchpad' /proc/bus/input/devices; then
-#    synclient VertEdgeScroll=1 &
-#    synclient TapButton1=1 &
-#fi
+if egrep -iq 'touchpad' /proc/bus/input/devices; then
+    synclient VertEdgeScroll=1 &
+    synclient TapButton1=1 &
+fi
+syndaemon -d -t &
 
 ## Start xscreensaver
 xscreensaver -no-splash &
@@ -49,18 +55,21 @@ xscreensaver -no-splash &
 nm-applet &
 
 ## GNOME PolicyKit and Keyring
-(\
-/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
-/usr/bin/gnome-keyring-daemon --start --components=ssh && \
-/usr/bin/gnome-keyring-daemon --start --components=secrets && \
-usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
-/usr/bin/gnome-keyring-daemon --start --components=gpg \
-) &
+#(\
+#/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
+#/usr/bin/gnome-keyring-daemon --start --components=ssh && \
+#/usr/bin/gnome-keyring-daemon --start --components=secrets && \
+#usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
+#/usr/bin/gnome-keyring-daemon --start --components=gpg \
+#) &
 
 ## Volume keys daemon
 xfce4-volumed &
 
-# Touchpad ausschalten
-synclient touchpadoff=1
+## Touchpad ausschalten
+#synclient touchpadoff=1
+
+# Autostart the Dropbox deamon
+(sleep 60s && ~/.dropbox-dist/dropboxd) &
 
 exec ck-launch-session dbus-launch dwm

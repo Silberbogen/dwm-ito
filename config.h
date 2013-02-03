@@ -2,18 +2,18 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-//static const char normbordercolor[] = "#444444";
-//static const char normbgcolor[]     = "#222222";
-//static const char normfgcolor[]     = "#bbbbbb";
-//static const char selbordercolor[]  = "#535d6c";
-//static const char selbgcolor[]      = "#535d6c";
-//static const char selfgcolor[]      = "#eeeeee";
-static const char normbordercolor[] = "#7c7c7c";
-static const char normbgcolor[]     = "#959595";
-static const char normfgcolor[]     = "#444444";
-static const char selbordercolor[]  = "#959595";
-static const char selbgcolor[]      = "#959595";
-static const char selfgcolor[]      = "#252527";
+static const char normbordercolor[] = "#444444";
+static const char normbgcolor[]     = "#222222";
+static const char normfgcolor[]     = "#bbbbbb";
+static const char selbordercolor[]  = "#535d6c";
+static const char selbgcolor[]      = "#535d6c";
+static const char selfgcolor[]      = "#eeeeee";
+//static const char normbordercolor[] = "#3F3F3F";
+//static const char normbgcolor[]     = "#777777";
+//static const char normfgcolor[]     = "#DCDCCC";
+//static const char selbordercolor[]  = "#CC9393";
+//static const char selbgcolor[]      = "#CC9393";
+//static const char selfgcolor[]      = "#6F6F6F";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -38,7 +38,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact      = 0.50; /* factor of master area size [0.05..0.95] */
+static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster      = 1;    /* number of clients in master area */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 
@@ -63,20 +63,21 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "uxterm", "-fg", "black", "-bg", "gray", NULL };
+static const char *termcmd[]  = { "uxterm", NULL };
 
 /* Programme die aufgerufen werden per Super+Taste */
-static const char *m_e_cmd[]  = { "gvim", NULL };
-static const char *m_w_cmd[]  = { "surf", NULL };
+static const char *m_e_cmd[]  = { "geany", NULL };
+static const char *m_w_cmd[]  = { "x-www-browser", NULL };
+static const char *m_y_cmd[]  = { "trackpad-toggle.sh", NULL };
 
 /* Programme die aufgerufen werden per Super+Alt+Taste */
 static const char *m_a_a_cmd[]  = { "incognito", NULL };
 static const char *m_a_b_cmd[]  = { "uxterm", "-e", "bpython3", NULL };
-static const char *m_a_c_cmd[]  = { "thunderbird", NULL };
+static const char *m_a_c_cmd[]  = { "conkeror", NULL };
 static const char *m_a_d_cmd[]  = { "deluge", NULL };
-static const char *m_a_e_cmd[]  = { "emacs", NULL };
+static const char *m_a_e_cmd[]  = { "gvim", NULL };
 static const char *m_a_f_cmd[]  = { "thunar", NULL };
-static const char *m_a_g_cmd[]  = { "gimp", NULL };
+static const char *m_a_g_cmd[]  = { "goliteide", NULL };
 static const char *m_a_i_cmd[]  = { "idle3", "-s", "-i", NULL };
 static const char *m_a_k_cmd[]  = { "keepassx", NULL };
 static const char *m_a_l_cmd[]  = { "slock", NULL };
@@ -142,6 +143,7 @@ static Key keys[] = {
 /* Programme starten per Super+Alt+Taste */
     { MODKEY,                       XK_e,      spawn,          {.v = m_e_cmd } },
     { MODKEY,                       XK_w,      spawn,          {.v = m_w_cmd } },
+    { MODKEY,                       XK_y,      spawn,          {.v = m_y_cmd } },
 
 /* Programme starten per Super+Alt+Taste */
     { MODKEY|ALTKEY,                XK_a,      spawn,          {.v = m_a_a_cmd } },

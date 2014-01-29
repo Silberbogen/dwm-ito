@@ -63,46 +63,24 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "uxterm", NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 /* Programme die aufgerufen werden per Super+Taste */
 static const char *m_e_cmd[]  = { "geany", NULL };
-static const char *m_w_cmd[]  = { "x-www-browser", NULL };
+static const char *m_w_cmd[]  = { "dwb", NULL };
 static const char *m_y_cmd[]  = { "trackpad-toggle.sh", NULL };
 
 /* Programme die aufgerufen werden per Super+Alt+Taste */
-static const char *m_a_a_cmd[]  = { "incognito", NULL };
-static const char *m_a_b_cmd[]  = { "uxterm", "-e", "bpython3", NULL };
-static const char *m_a_c_cmd[]  = { "conkeror", NULL };
-static const char *m_a_d_cmd[]  = { "deluge", NULL };
-static const char *m_a_e_cmd[]  = { "gvim", NULL };
-static const char *m_a_f_cmd[]  = { "thunar", NULL };
-static const char *m_a_g_cmd[]  = { "goliteide", NULL };
-static const char *m_a_i_cmd[]  = { "idle3", "-s", "-i", NULL };
-static const char *m_a_k_cmd[]  = { "keepassx", NULL };
-static const char *m_a_l_cmd[]  = { "slock", NULL };
-static const char *m_a_m_cmd[]  = { "vlc", NULL };
-static const char *m_a_n_cmd[]  = { "nitrogen", NULL };
-static const char *m_a_p_cmd[]  = { "trackpad-toggle.sh", NULL };
-static const char *m_a_r_cmd[]  = { "rednotebook_switcher", NULL };
-static const char *m_a_s_cmd[]  = { "gksudo", "synaptic", NULL };
-static const char *m_a_t_cmd[]  = { "xfce4-terminal", NULL };
-static const char *m_a_u_cmd[]  = { "unison-gtk", NULL };
-static const char *m_a_v_cmd[]  = { "pavucontrol", NULL };
-static const char *m_a_w_cmd[]  = { "x-www-browser", NULL };
-static const char *m_a_x_cmd[]  = { "xchat", NULL };
-static const char *m_a_z_cmd[]  = { "zathura", NULL };
 
 /* Programme die aufgerufen werden per Super+ALT+Umschalten+Taste */
-static const char *m_a_s_e_cmd[]  = { "evince", NULL };
-static const char *m_a_s_f_cmd[]  = { "uxterm", "-e", "mc", NULL };
 
-static const char *print_cmd[]  = { "bildschirmfoto", NULL };
+static const char *print_cmd[]  = { "scrot", NULL };
 
 static Key keys[] = {
     /* modifier                     key        function        argument */
     { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-    { MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
+    { ALTKEY,                       XK_F3,     spawn,          {.v = dmenucmd } },
+    { MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
     { MODKEY,                       XK_b,      togglebar,      {0} },
     { MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
     { MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -110,7 +88,7 @@ static Key keys[] = {
     { MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
     { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
     { MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-    { MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+    { MODKEY,                       XK_Return, zoom,           {0} },
     { MODKEY,                       XK_Tab,    view,           {0} },
     { MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
     { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
@@ -128,6 +106,7 @@ static Key keys[] = {
     { MODKEY,                       XK_Right, view_adjacent,   {.i = +1 } },  // nächster Tag
     { MODKEY,                       XK_Up,     focusstack,     {.i = +1 } },
     { MODKEY,                       XK_Down,   focusstack,     {.i = -1 } },
+    { ALTKEY,                       XK_Tab,    focusstack,     {.i = +1 } },
     TAGKEYS(                        XK_1,                      0)
     TAGKEYS(                        XK_2,                      1)
     TAGKEYS(                        XK_3,                      2)
@@ -146,31 +125,8 @@ static Key keys[] = {
     { MODKEY,                       XK_y,      spawn,          {.v = m_y_cmd } },
 
 /* Programme starten per Super+Alt+Taste */
-    { MODKEY|ALTKEY,                XK_a,      spawn,          {.v = m_a_a_cmd } },
-    { MODKEY|ALTKEY,                XK_b,      spawn,          {.v = m_a_b_cmd } },
-    { MODKEY|ALTKEY,                XK_c,      spawn,          {.v = m_a_c_cmd } },
-    { MODKEY|ALTKEY,                XK_d,      spawn,          {.v = m_a_d_cmd } },
-    { MODKEY|ALTKEY,                XK_e,      spawn,          {.v = m_a_e_cmd } },
-    { MODKEY|ALTKEY,                XK_f,      spawn,          {.v = m_a_f_cmd } },
-    { MODKEY|ALTKEY,                XK_g,      spawn,          {.v = m_a_g_cmd } },
-    { MODKEY|ALTKEY,                XK_i,      spawn,          {.v = m_a_i_cmd } },
-    { MODKEY|ALTKEY,                XK_k,      spawn,          {.v = m_a_k_cmd } },
-    { MODKEY|ALTKEY,                XK_l,      spawn,          {.v = m_a_l_cmd } },
-    { MODKEY|ALTKEY,                XK_m,      spawn,          {.v = m_a_m_cmd } },
-    { MODKEY|ALTKEY,                XK_n,      spawn,          {.v = m_a_n_cmd } },
-    { MODKEY|ALTKEY,                XK_p,      spawn,          {.v = m_a_p_cmd } },
-    { MODKEY|ALTKEY,                XK_r,      spawn,          {.v = m_a_r_cmd } },
-    { MODKEY|ALTKEY,                XK_s,      spawn,          {.v = m_a_s_cmd } },
-    { MODKEY|ALTKEY,                XK_t,      spawn,          {.v = m_a_t_cmd } },
-    { MODKEY|ALTKEY,                XK_u,      spawn,          {.v = m_a_u_cmd } },
-    { MODKEY|ALTKEY,                XK_v,      spawn,          {.v = m_a_v_cmd } },
-    { MODKEY|ALTKEY,                XK_w,      spawn,          {.v = m_a_w_cmd } },
-    { MODKEY|ALTKEY,                XK_x,      spawn,          {.v = m_a_x_cmd } },
-    { MODKEY|ALTKEY,                XK_z,      spawn,          {.v = m_a_z_cmd } },
 
     /* Programme starten per Super+ALT+Umschalten+Taste */
-    { MODKEY|ALTKEY|ShiftMask,      XK_e,      spawn,          {.v = m_a_s_e_cmd } },
-    { MODKEY|ALTKEY|ShiftMask,      XK_f,      spawn,          {.v = m_a_s_f_cmd } },
 
     /* Programme starten per Einzeltaste */
     { 0,                            XK_Print,  spawn,          {.v = print_cmd } },

@@ -1,75 +1,17 @@
 #!/bin/bash
-# Sollte in /usr/local/bin platziert werden
-
-# Clean up after GDM
-xprop -root -remove _NET_NUMBER_OF_DESKTOPS \
-      -remove _NET_DESKTOP_NAMES \
-      -remove _NET_CURRENT_DESKTOP 2> /dev/null
-
-## GNOME PolicyKit and Keyring
 eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-
-## Set root window colour
-hsetroot -solid "#2E3436" &
-
-# change background picture
+synclient VertEdgeScrol=1 &
+syndaemon -t -k -i 2 -d &
+synclient touchpadoff=1 &
+setxkbmap -layout de nodeadkeys &
+conky -c .conkydwm | while read -r; do xsetroot -name "$REPLY"; done &
 nitrogen --restore &
-
-## Volume control for systray
-(sleep 2s && pnmixer) &
-
-## Enable hot corners
-#cb-hotcorners --daemon &
-
-## Enable power management
-xfce4-power-manager &
-
-## Start Thunar Daemon
-thunar --daemon &
-
-#conky für die Statuszeile
-conky -c ~/.conkyrc-dwm | while read -r; do xsetroot -name "$REPLY"; done &
-
-## Detect and configure touchpad. See 'man synclient' for more info.
-if egrep -iq 'touchpad' /proc/bus/input/devices; then
-    synclient VertEdgeScroll=1 &
-    synclient TapButton1=1 &
-fi
-syndaemon -d -t &
-
-## Start xscreensaver
-xscreensaver -no-splash &
-
-## Start Clipboard manager
-#(sleep 3s && parcellite) &
-(sleep 3s && clipit) &
-
-## cb-welcome - post-installation script, will not run in a live session and
-## only runs once. Safe to remove.
-#(sleep 10s && cb-welcome --firstrun) &
-
-## cb-fortune - have Statler say a little adage
-(sleep 120s && cb-fortune) &
-
-# Network-Manager-Applet laden
-nm-applet &
-
-## GNOME PolicyKit and Keyring
-#(\
-#/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1 && \
-#/usr/bin/gnome-keyring-daemon --start --components=ssh && \
-#/usr/bin/gnome-keyring-daemon --start --components=secrets && \
-#usr/bin/gnome-keyring-daemon --start --components=pkcs11 && \
-#/usr/bin/gnome-keyring-daemon --start --components=gpg \
-#) &
-
-## Volume keys daemon
+pnmixer &
 xfce4-volumed &
-
-## Touchpad ausschalten
-#synclient touchpadoff=1
-
-# Autostart the Dropbox deamon
+xfce4-power-manager &
+thunar --daemon &
+xscreensaver -no-splash &
+unclutter &
 (sleep 60s && ~/.dropbox-dist/dropboxd) &
-
 exec ck-launch-session dbus-launch dwm
+

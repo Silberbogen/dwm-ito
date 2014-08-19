@@ -5,8 +5,10 @@ static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
 static const char normbordercolor[] = "#444444";
 static const char normbgcolor[]     = "#222222";
 static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#535d6c";
-static const char selbgcolor[]      = "#535d6c";
+//static const char selbordercolor[]  = "#535d6c";
+//static const char selbgcolor[]      = "#535d6c";
+static const char selbordercolor[]  = "#E75B12";
+static const char selbgcolor[]      = "#E75B12";
 static const char selfgcolor[]      = "#eeeeee";
 //static const char normbordercolor[] = "#3F3F3F";
 //static const char normbgcolor[]     = "#777777";
@@ -66,11 +68,15 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, 
 static const char *termcmd[]  = { "st", NULL };
 
 /* Programme die aufgerufen werden per Super+Taste */
-static const char *m_e_cmd[]  = { "geany", NULL };
+static const char *m_e_cmd[]  = { "emacs", NULL };
 static const char *m_w_cmd[]  = { "dwb", NULL };
 static const char *m_y_cmd[]  = { "trackpad-toggle.sh", NULL };
 
-/* Programme die aufgerufen werden per Super+Alt+Taste */
+/* Programme die aufgerufen werden per Super+Alt+Strg+Taste */
+static const char *rotate_right_cmd[]  = { "rotate-right", NULL };
+static const char *rotate_left_cmd[]  = { "rotate-left", NULL };
+static const char *rotate_inverted_cmd[]  = { "rotate-inverted", NULL };
+static const char *rotate_normal_cmd[]  = { "rotate-normal", NULL };
 
 /* Programme die aufgerufen werden per Super+ALT+Umschalten+Taste */
 
@@ -119,12 +125,16 @@ static Key keys[] = {
     { MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     // Selbsterstellte Kürzel
 
-/* Programme starten per Super+Alt+Taste */
+    /* Programme starten per Super+Alt+Taste */
     { MODKEY,                       XK_e,      spawn,          {.v = m_e_cmd } },
     { MODKEY,                       XK_w,      spawn,          {.v = m_w_cmd } },
     { MODKEY,                       XK_y,      spawn,          {.v = m_y_cmd } },
 
-/* Programme starten per Super+Alt+Taste */
+    /* Programme starten per Super+Alt+Strg+Taste */
+    { MODKEY|Mod1Mask|ControlMask,  XK_Right, spawn,   {.v = rotate_right_cmd } },
+    { MODKEY|Mod1Mask|ControlMask,  XK_Left, spawn,   {.v = rotate_left_cmd } },
+    { MODKEY|Mod1Mask|ControlMask,  XK_Up, spawn,   {.v = rotate_normal_cmd } },
+    { MODKEY|Mod1Mask|ControlMask,  XK_Down, spawn,   {.v = rotate_inverted_cmd } },
 
     /* Programme starten per Super+ALT+Umschalten+Taste */
 

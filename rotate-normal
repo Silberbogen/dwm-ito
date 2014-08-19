@@ -1,0 +1,5 @@
+
+#/bin/bash
+xrandr -o normal
+xinput set-prop 'Fujitsu Component USB Touch Panel' 'Coordinate Transformation Matrix' 1 0 0 0 1 0 0 0 1
+

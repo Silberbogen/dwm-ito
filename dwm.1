@@ -1,6 +1,13 @@
-.TH DWM 1 dwm\-VERSION
+.TH DWM-ITO 1 dwm-ito\-VERSION
 .SH NAME
 dwm-ito \- ein angepasster dynamic window manager Klon
+enthält:
+- bottom stack patch
+- systray patch
+- view adjacent patch
+- monocle count patch
+
+Das Schweben der Maus über einem Fenster aktiviert dieses nicht. Hierzu muss es angeklickt werden. Nebenbei, wer benutzt schon eine Maus? ;)
 .SH SYNOPSIS
 .B dwm
 .RB [ \-v ]
@@ -59,13 +66,19 @@ Sendet das fokussierte Fenster zum nächsten Bildschirm, wenn möglich.
 Schaltet die Statuszeile ein oder aus.
 .TP
 .B Mod4\-t
-Setzt die geteilte Anordnung.
+Setzt die vertikal geteilte Anordnung.
 .TP
 .B Mod4\-f
 Setzt die fließende Anordnung.
 .TP
 .B Mod4\-m
 Setzt die nur-ein-Fenster (Monokel) Anordnung.
+.TP
+.B Mod4\-n
+Setzt die horizontal geteilte Anordnung, wobei der untergeordnete Bereich sich vertikal teilt.
+.TP
+.B Mod4\-n
+Setzt die horizontal geteilte Anordnung, wobei der untergeordnete Bereich sich ebenfalls horizontal teilt.
 .TP
 .B Mod4\-space
 Wechselt zwischen der aktuellen und der vorhergehenden Anordnung.
@@ -89,7 +102,7 @@ Vermindert die Größe des Hauptbereichs.
 Erhöht die Größe des Hauptbereichs.
 .TP
 .B Mod4\-Umschalten\-Eingabe
-Zoomt/zyklisch fokussierte Fenster in das/aus dem Hauptbereich (nur in der geteilten Anordnung).
+Zoomt/zyklisch fokussierte Fenster in das/aus dem Hauptbereich (nur in geteilten Anordnungen).
 .TP
 .B Mod4\-Umschalten\-c
 Schließt das fokussierte Fenster (wodurch nicht unbedingt das Programm beendet wird).
@@ -125,7 +138,7 @@ Füge/entferne den Tag 1 (2, 3 ... n) dem fokussierten Fenster hinzu.
 Zeige alle Fenster des Tag 1 (2, 3, ...).
 .TP
 .B Mod4\-0
-Zeige alle Fenster (Expose) irgendeines Tags.
+Zeige alle Fenster (Expose) aller Tags.
 .TP
 .B Mod4\-Control\-[1..n]
 Füge/entferne alle Fenster mit dem Tag 1 (2, 3 ... n) der Ansicht hinzu.
@@ -142,6 +155,12 @@ Wechselt das fokussierte Fenster zwischen dem fließenden und geteilten Status.
 .TP
 .B Mod4\-Taste3
 Verändere die Größe des fokussierten Fensters, während du es festhältst. Geteilte Fenster werden in den fließenden Status versetzt.
+.TP
+.B Mod4\-Taste4
+Wechselt einen Tag nach links. Von der 1 aus wird zu 9 gewechselt. 
+.TP
+.B Mod4\-Taste5
+Wechselt einen Tag nach rechts. Von der 9 aus wird zu 1 gewechselt.
 .SS Progammstart Tastenkombinationen
 .TP
 .B Druck/S-Abf

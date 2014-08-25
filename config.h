@@ -63,6 +63,9 @@ static const char *rotate_left_cmd[] = { "rotate-left", NULL };
 static const char *rotate_inverted_cmd[] = { "rotate-inverted", NULL };
 static const char *rotate_normal_cmd[] = { "rotate-normal", NULL };
 static const char *print_cmd[] = { "scrot", NULL };
+static const char *raise_volume_cmd[] = { "amixer", "set", "Master", "5%+", "unmute", NULL };
+static const char *lower_volume_cmd[] = { "amixer", "set", "Master", "5%-", "unmute", NULL };
+static const char *toggle_mute_cmd[] = { "amixer", "set", "Master", "toggle", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -117,6 +120,9 @@ static Key keys[] = {
     { MODKEY|Mod1Mask|ControlMask,  XK_Up,     spawn,          {.v = rotate_normal_cmd } },
     { MODKEY|Mod1Mask|ControlMask,  XK_Down,   spawn,          {.v = rotate_inverted_cmd } },
     { 0,                            XK_Print,  spawn,          {.v = print_cmd } },
+    { 0,                            XF86XK_AudioRaiseVolume,  spawn,      {.v = raise_volume_cmd } },
+    { 0,                            XF86XK_AudioLowerVolume,  spawn,      {.v = lower_volume_cmd } },
+    { 0,                            XF86XK_AudioMute,   spawn,      {.v = toggle_mute_cmd } },
 };
 
 /* button definitions */

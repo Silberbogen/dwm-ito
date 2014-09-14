@@ -1,9 +1,14 @@
 #!/bin/bash
-eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
-synclient VertEdgeScrol=1 &
+#eval $(gnome-keyring-daemon -s --components=pkcs11,secrets,ssh,gpg) &
+kalibrierung &
+#synclient VertEdgeScrol=1 &
 syndaemon -t -k -i 2 -d &
-synclient touchpadoff=1 &
+#synclient TapButton1=1 &
+#synclient TapButton2=2 &
+#synclient TapButton3=3 &
+#synclient touchpadoff=1 &
 setxkbmap -layout de nodeadkeys &
+#feh --bg-scale /home/sascha/Bilder/Wallpapers/green_wall_window-HD.jpg -Z &
 conky -c .conkydwm | while read -r; do xsetroot -name "$REPLY"; done &
 nitrogen --restore &
 pnmixer &
@@ -11,7 +16,9 @@ xfce4-volumed &
 xfce4-power-manager &
 thunar --daemon &
 xscreensaver -no-splash &
+nm-applet &
 unclutter &
-(sleep 60s && ~/.dropbox-dist/dropboxd) &
-exec ck-launch-session dbus-launch dwm
+#(sleep 60s && ~/.dropbox-dist/dropboxd) &
+exec ck-launch-session dbus-launch startdwm
+#exec dwm
 

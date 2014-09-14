@@ -2,13 +2,21 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#bbbbbb";
-static const char selbgcolor[]      = "#bbbbbb";
-static const char selfgcolor[]      = "#222222";
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
+static const char normbordercolor[] = "#333333";
+static const char normbgcolor[]     = "#333333";
+static const char normfgcolor[]     = "#ffffff";
+//static const char selbordercolor[]  = "#1793d1"; // Archlinux Blau
+//static const char selbgcolor[]      = "#1793d1";
+//static const char selbordercolor[]  = "#39ff14"; // Neon Grün
+//static const char selbgcolor[]      = "#39ff14";
+//static const char selbordercolor[]  = "#11407b"; // Ultramarine Blau
+//static const char selbgcolor[]      = "#11407b";
+//static const char selbordercolor[]  = "#fe731c"; // dusty neon orange
+//static const char selbgcolor[]      = "#fe731c";
+static const char selbordercolor[]  = "#ef4036";
+static const char selbgcolor[]      = "#ef4036";
+static const char selfgcolor[]      = "#ffffff";
+static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
 static const Bool showsystray       = True;     /* False means no systray */
@@ -58,6 +66,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *m_e_cmd[] = { "emacs", NULL };
 static const char *m_w_cmd[] = { "surf", NULL };
 static const char *m_y_cmd[] = { "trackpad-toggle.sh", NULL };
+static const char *killall_cmd[] = { "killall", "startdwm", NULL };
 static const char *rotate_right_cmd[] = { "rotate-right", NULL };
 static const char *rotate_left_cmd[] = { "rotate-left", NULL };
 static const char *rotate_inverted_cmd[] = { "rotate-inverted", NULL };
@@ -112,6 +121,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	
+    { MODKEY|Mod1Mask|ShiftMask,    XK_q,      spawn,          {.v = killall_cmd } },
     { MODKEY,                       XK_e,      spawn,          {.v = m_e_cmd } },
     { MODKEY,                       XK_w,      spawn,          {.v = m_w_cmd } },
     { MODKEY,                       XK_y,      spawn,          {.v = m_y_cmd } },

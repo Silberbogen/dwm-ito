@@ -13,10 +13,10 @@ static const char normfgcolor[]     = "#ffffff";
 //static const char selbgcolor[]      = "#11407b";
 //static const char selbordercolor[]  = "#fe731c"; // dusty neon orange
 //static const char selbgcolor[]      = "#fe731c";
-static const char selbordercolor[]  = "#ef4036"; // Erdbeere
-static const char selbgcolor[]      = "#ef4036";
-//static const char selbordercolor[]  = "#6f00ff"; // Erdbeere
-//static const char selbgcolor[]      = "#6f00ff";
+//static const char selbordercolor[]  = "#ef4036"; // Erdbeere
+//static const char selbgcolor[]      = "#ef4036";
+static const char selbordercolor[]  = "#6f00ff"; // Indigo
+static const char selbgcolor[]      = "#6f00ff";
 static const char selfgcolor[]      = "#ffffff";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -33,6 +33,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
@@ -54,6 +55,7 @@ static const Layout layouts[] = {
 /* key definitions */
 #define MODKEY Mod4Mask
 #define ALTKEY Mod1Mask
+#define CTRLKEY ControlMask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -78,6 +80,7 @@ static const char *print_cmd[] = { "scrot", NULL };
 static const char *raise_volume_cmd[] = { "amixer", "set", "Master", "5%+", "unmute", NULL };
 static const char *lower_volume_cmd[] = { "amixer", "set", "Master", "5%-", "unmute", NULL };
 static const char *toggle_mute_cmd[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *lock_screen_cmd[] = { "xscreensaver-command", "-lock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -136,6 +139,7 @@ static Key keys[] = {
     { 0,                            XF86XK_AudioRaiseVolume,  spawn,      {.v = raise_volume_cmd } },
     { 0,                            XF86XK_AudioLowerVolume,  spawn,      {.v = lower_volume_cmd } },
     { 0,                            XF86XK_AudioMute,   spawn,      {.v = toggle_mute_cmd } },
+    { MODKEY|ALTKEY|CTRLKEY,        XK_l,      spawn,          {.v = lock_screen_cmd } },
 };
 
 /* button definitions */

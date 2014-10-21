@@ -5,16 +5,6 @@ static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*
 static const char normbordercolor[] = "#333333";
 static const char normbgcolor[]     = "#333333";
 static const char normfgcolor[]     = "#ffffff";
-//static const char selbordercolor[]  = "#1793d1"; // Archlinux Blau
-//static const char selbgcolor[]      = "#1793d1";
-//static const char selbordercolor[]  = "#39ff14"; // Neon Grün
-//static const char selbgcolor[]      = "#39ff14";
-//static const char selbordercolor[]  = "#11407b"; // Ultramarine Blau
-//static const char selbgcolor[]      = "#11407b";
-//static const char selbordercolor[]  = "#fe731c"; // dusty neon orange
-//static const char selbgcolor[]      = "#fe731c";
-//static const char selbordercolor[]  = "#ef4036"; // Erdbeere
-//static const char selbgcolor[]      = "#ef4036";
 static const char selbordercolor[]  = "#6f00ff"; // Indigo
 static const char selbgcolor[]      = "#6f00ff";
 static const char selfgcolor[]      = "#ffffff";
@@ -32,8 +22,8 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
-	{ "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
+//	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+//	{ "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
@@ -69,7 +59,8 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *m_e_cmd[] = { "emacs", NULL };
-static const char *m_w_cmd[] = { "surf", NULL };
+static const char *m_w_cmd[] = { "x-www-browser", NULL };
+static const char *m_s_w_cmd[] = { "surf", NULL };
 static const char *m_y_cmd[] = { "trackpad-toggle.sh", NULL };
 static const char *killall_cmd[] = { "killall", "startdwm", NULL };
 static const char *rotate_right_cmd[] = { "rotate-right", NULL };
@@ -84,7 +75,7 @@ static const char *lock_screen_cmd[] = { "xscreensaver-command", "-lock", NULL }
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_x,      spawn,          {.v = dmenucmd } },
 	{ ALTKEY,                       XK_F3,     spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
@@ -126,10 +117,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
-	
     { MODKEY|Mod1Mask|ShiftMask,    XK_q,      spawn,          {.v = killall_cmd } },
     { MODKEY,                       XK_e,      spawn,          {.v = m_e_cmd } },
     { MODKEY,                       XK_w,      spawn,          {.v = m_w_cmd } },
+    { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = m_s_w_cmd } },
     { MODKEY,                       XK_y,      spawn,          {.v = m_y_cmd } },
     { MODKEY|Mod1Mask|ControlMask,  XK_Right,  spawn,          {.v = rotate_right_cmd } },
     { MODKEY|Mod1Mask|ControlMask,  XK_Left,   spawn,          {.v = rotate_left_cmd } },
@@ -139,7 +130,7 @@ static Key keys[] = {
     { 0,                            XF86XK_AudioRaiseVolume,  spawn,      {.v = raise_volume_cmd } },
     { 0,                            XF86XK_AudioLowerVolume,  spawn,      {.v = lower_volume_cmd } },
     { 0,                            XF86XK_AudioMute,   spawn,      {.v = toggle_mute_cmd } },
-    { MODKEY|ALTKEY|CTRLKEY,        XK_l,      spawn,          {.v = lock_screen_cmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = lock_screen_cmd } },
 };
 
 /* button definitions */

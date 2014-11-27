@@ -2,12 +2,12 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#333333";
-static const char normbgcolor[]     = "#333333";
-static const char normfgcolor[]     = "#ffffff";
-static const char selbordercolor[]  = "#6f00ff"; // Indigo
-static const char selbgcolor[]      = "#6f00ff";
-static const char selfgcolor[]      = "#ffffff";
+static const char normbordercolor[] = "#002b36";
+static const char normbgcolor[]     = "#002b36"; 
+static const char normfgcolor[]     = "#839495";
+static const char selbordercolor[]  = "#d33682";
+static const char selbgcolor[]      = "#d33682";
+static const char selfgcolor[]      = "#eee8d5";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systrayspacing = 2;   /* systray spacing */

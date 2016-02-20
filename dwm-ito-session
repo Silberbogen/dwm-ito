@@ -19,6 +19,6 @@ xscreensaver -no-splash &
 nm-applet &
 unclutter &
 #(sleep 60s && ~/.dropbox-dist/dropboxd) &
-exec ck-launch-session dbus-launch startdwm
+exec ck-launch-session dbus-launch startdwm-ito
 #exec dwm
 

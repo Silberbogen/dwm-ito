@@ -1,0 +1,222 @@
+.TH DWM-ITO 1 dwm-ito\-VERSION
+.SH NAME
+dwm-ito \- ein angepasster dynamic window manager Klon
+enthält:
+- bottom stack patch
+- systray patch
+- view adjacent patch
+- monocle count patch
+- view on tag patch
+
+Das Schweben der Maus über einem Fenster aktiviert dieses nicht. Hierzu muss es angeklickt werden. Nebenbei, wer benutzt schon eine Maus? ;)
+.SH SYNOPSIS
+.B dwm-ito
+.RB [ \-v ]
+.SH BESCHREIBUNG
+dwm-ito ist ein dynamischer Fenstermanager für X. Er verwaltet Fenster in geteilten, monoklischen und fließenden Anordnungen. Die Anordnungen könenn entweder dynamisch zugewiesen oder optimiert für die Umgebung der Anwendungen in Bezug auf Verwendung oder Aufgaben genutzt werden.
+.P
+In geteilten Anordnungen werden Fenstern verwaltet in einem Hauptbereich und einem Stapelbereich, wobei der Stapelbereich alle anderen Fenster beinhaltet. Der Hauptbereich enthält für gewöhnlich das Fenster, das momentan die meiste Aufmerksamkeit benötigt, während alle anderen Fenster im Stapelbereich ausgelagert sind. In der monoklischen Anordnung werden alle Fenster auf Bildschirmgröße (abzüglich der Fenstermanagerzeile) vergrößert, aber nur ein einziges angezeigt. In der fließenden Anordnung können Fenster frei bewegt und in ihrer Größe angepasst werden. Dialog-Fenster befinden sich stets in der fließenden Anordnung, ganz unabhängig davon, welche Anordnung ausgewählt wurde.
+.P
+Fenster werden gruppiert unter Tags (Lesezeichen, Schlagwörtern). Jedes Fenster kann einem oder mehreren Tags zugeordnet werden. Die Auswahl verschiedener Tags wird alle Fenster der Tags anzeigen.
+.P
+Jeder Bildschirm enthält eine kleine Statuszeile die alle verfügbaren Tags anzeigt, die Anordnung, den Titel des fokussierten Fensters, und den Text der vom Root-Fenster-Namensbereich gelesen wird, wenn der Bildschirm fokussiert ist. 
+Ein fließendes Fenster wird darin dargestellt mit einem leeren Viereck, während ein maximiertes fliessendes Fenster mit einem ausgefüllten Viereck vor dem Fenstertitel angezeigt wird. Die ausgewählten Tags werden in einer anderen Farbe dargestellt. Die Tags des fokussierten Fensters werden mit einem gefüllten Viereck in der linken oberen Ecke dargestellt. Die Tags die einem oder mehreren Fenstern zugeordnet sind, werden mit einem leeren Viereck in der oberen linken Ecke dargestellt.
+.P
+dwm-ito zeichnet einen schmalen Rahmen um Fenster um anzuzeigen, das sie momentan über den Fokus verfügen.
+.SH OPTIONEN
+.TP
+.B \-v
+gibt Versionsinformation über die Standardausgabe aus und beendet dwm-ito dann.
+.SH VERWENDUNG
+.SS Statuszeile
+.TP
+.B X Root Fenstername
+wird gelesen und dargestellt im Statustext-Bereich. Er kann gesetzt werden über den
+.BR xsetroot (1)
+Befehl.
+.TP
+.B Taste1
+klicke auf einen Tag-Bezeichner um zu diesen Tag zu wechseln und dessen zugeordnete Fenster anzuzeigen. Klicke auf die Anordnungs-Bezeichnung um zwischen geteilter und fließended Anordnung zu wechseln.
+.TP
+.B Taste3
+klicken auf einen Tag-Bezeichner um alle Fenster des Tags zur Ansicht hinzuzufügen/zu entfernen.
+.TP
+.B Mod4\-Taste1
+klicken auf einen Tag-Bezeichner fügt diesen dem fokussierten Fenster hinzu.
+.TP
+.B Mod4\-Taste3
+klicken auf einen Tag-Bezeichner fügt diesen Tag zum fokussierten Fenster hinzu oder entfernt ihn davon.
+.SS Tastatur Befehle
+.TP
+.B Mod4\-Eingabe
+Startet das Terminalprogramm.
+.TP
+.B Mod4\-,
+Fokussiert den vorhergehenden Bildschirm, wenn möglich.
+.TP
+.B Mod4\-.
+Fokussiert den nächsten Bildschirm, wenn möglich.
+.TP
+.B Mod4\-Umschalten\-,
+Sendet das fokussierte Fenster zum vorhergehenden Bildschirm, wenn möglich.
+.TP
+.B Mod4\-Umschalten\-.
+Sendet das fokussierte Fenster zum nächsten Bildschirm, wenn möglich.
+.TP
+.B Mod4\-b
+Schaltet die Statuszeile ein oder aus.
+.TP
+.B Mod4\-t
+Setzt die vertikal geteilte Anordnung.
+.TP
+.B Mod4\-f
+Setzt die fließende Anordnung.
+.TP
+.B Mod4\-m
+Setzt die nur-ein-Fenster (Monokel) Anordnung.
+.TP
+.B Mod4\-n
+Setzt die horizontal geteilte Anordnung, wobei der untergeordnete Bereich sich vertikal teilt.
+.TP
+.B Mod4\-z
+Setzt die horizontal geteilte Anordnung, wobei der untergeordnete Bereich sich ebenfalls horizontal teilt.
+.TP
+.B Mod4\-space
+Wechselt zwischen der aktuellen und der vorhergehenden Anordnung.
+.TP
+.B Mod4\-j
+Fokussiert das nächste Fenster.
+.TP
+.B Mod4\-k
+Fokussiert das vorhergehende Fenster.
+.TP
+.B Mod4\-i
+Erhöht die Anzahl an Klienten im Hauptbereich.
+.TP
+.B Mod4\-d
+Vermindert die Anzahl an Klienten im Hauptbereich.
+.TP
+.B Mod4\-h
+Vermindert die Größe des Hauptbereichs.
+.TP
+.B Mod4\-l
+Erhöht die Größe des Hauptbereichs.
+.TP
+.B Mod4\-Umschalten\-Eingabe
+Zoomt/zyklisch fokussierte Fenster in das/aus dem Hauptbereich (nur in geteilten Anordnungen).
+.TP
+.B Mod4\-Umschalten\-c
+Schließt das fokussierte Fenster (wodurch nicht unbedingt das Programm beendet wird).
+.TP
+.B Alt\-F4
+Schließt das fokussierte Fenster (wodurch nicht unbedingt das Programm beendet wird).
+.TP
+.B Mod4\-Umschalten\-space
+Wechselt das fokussierte Fenster zwischen dem geteilten und der fließenden Anordnung.
+.TP
+.B Mod4\-Tab
+Wechselt zum zuvor ausgewählten Tag.
+.TP
+.B Mod4\-Pfeiltaste-Links
+Wechselt einen Tag nach links. Von der 1 aus wird zu 9 gewechselt. 
+.TP
+.B Mod4\-Pfeiltaste-Rechts
+Wechselt einen Tag nach rechts. Von der 9 aus wird zu 1 gewechselt.
+.TP
+.B Mod4\-Pfeiltaste-Hoch
+Wechselt zum vorhergehenden Fenster im aktuellen Tag.
+.TP
+.B Mod4\-Pfeiltaste-Runter
+Wechselt zum nachfolgenden Fenster im aktuellen Tag.
+.TP
+.B Mod4\-Umschalten\-[1..n]
+Ordne den Tag 1 (2, 3 ... n) dem fokussierten Fenster zu.
+.TP
+.B Mod4\-Umschalten\-0
+Ordne alle Tags dem fokussierten Fenster zu (wodurch es Teil von allen Tags wird).
+.TP
+.B Mod4\-Control\-Umschalten\-[1..n]
+Füge/entferne den Tag 1 (2, 3 ... n) dem fokussierten Fenster hinzu.
+.TP
+.B Mod4\-[1..n]
+Zeige alle Fenster des Tag 1 (2, 3, ...).
+.TP
+.B Mod4\-0
+Zeige alle Fenster (Expose) aller Tags.
+.TP
+.B Mod4\-Control\-[1..n]
+Füge/entferne alle Fenster mit dem Tag 1 (2, 3 ... n) der Ansicht hinzu.
+.TP
+.B Mod4\-Umschalten\-q
+Starte dwm-ito neu ohne Sitzung zu beenden.
+.TP
+.B Alt\-Mod4\-Umschalten\-q
+Verlasse dwm-ito.
+.TP
+.B Alt\-Strg\-Mod4\-Pfeiltaste-Links
+Rotiert den Bildschirm um 90° nach links, ebenso wie das Verhalten der Touchscreeneingabe. 
+.TP
+.B Alt\-Strg\-Mod4\-Pfeiltaste-Rechts
+Rotiert den Bildschirm um 90° nach rechts, ebenso wie das Verhalten der Touchscreeneingabe. 
+.TP
+.B Alt\-Strg\-Mod4\-Pfeiltaste-Hoch
+Rotiert den Bildschirm auf Normalstellung, ebenso wie das Verhalten der Touchscreeneingabe. 
+.TP
+.B Alt\-Strg\-Mod4\-Pfeiltaste-Unten
+Rotiert den Bildschirm um 180° auf Inversstellung, ebenso wie das Verhalten der Touchscreeneingabe. 
+.SS Maus Befehle
+.TP
+.B Mod4\-Taste1
+Bewege das fokussierte Fenster, während du es festhältst. Geteilte Fenster werden in den fließenden Status versetzt.
+.TP
+.B Mod4\-Taste2
+Wechselt das fokussierte Fenster zwischen dem fließenden und geteilten Status.
+.TP
+.B Mod4\-Taste3
+Verändere die Größe des fokussierten Fensters, während du es festhältst. Geteilte Fenster werden in den fließenden Status versetzt.
+.TP
+.B Mod4\-Taste4
+Wechselt einen Tag nach links. Von der 1 aus wird zu 9 gewechselt. 
+.TP
+.B Mod4\-Taste5
+Wechselt einen Tag nach rechts. Von der 9 aus wird zu 1 gewechselt.
+.SS Progammstart Tastenkombinationen
+.TP
+.B Druck/S-Abf
+Speichert ein Bildschirmfoto der aktuellen Ansicht.
+.TP
+.B Mod4\-e
+Startet den primären Editor.
+.TP
+.B Mod4\-p
+Verriegelt die Sitzung und erzwingt die Passwort-Eingabe.
+.TP
+.B Mod4\-x
+Öffnet den Programmstarter Dmenu.
+.TP
+.B Alt\-F3
+Öffnet den Programmstarter Dmenu.
+.TP
+.B Mod4\-w
+Startet ICEWEASEL als Webbrowser.
+.TP
+.B Mod4\-w
+Startet das TOR-Browser-Bundle.
+.SH ANPASSUNGEN
+dwm-ito wird angepasst, indem eine angepasste config.h erstellt und der Quellcode (re)compiliert wird. Dies sorgt dafür, daß dwm-ito schnell, sicher und einfach bleibt.
+.SH SIEHE AUCH
+.BR dmenu (1)
+.SH FEHLER / BUGS
+Java-Anwendungen, welche das XToolkit/XAWT-Backend verwenden, zeichnen eventuell nur graue Fenster. Das XToolkit/XAWT-Backend zerbricht die ICCCM-Verwendbarkeit in älteren JDK 1.5 und frühen JDK 1.6 versionen, da es einen reparenting Fenstermanager voraussetzt. Möglichkeiten dies zu umgehen bestehen darin, JDK 1.4 zu verwenden (welches das XToolkit/XAWT-Backend nicht enthält) oder die Umgebungs-Variable
+.BR AWT_TOOLKIT=MToolkit
+(um das ältere Motif-Backend stattdessen) zu verwenden oder
+.B xprop -root -f _NET_WM_NAME 32a -set _NET_WM_NAME LG3D
+oder
+.B wmname LG3D
+(um bekanntzugeben, daß ein nicht-reparenting Fenstermanager läuft, den das XToolkit/XAWT-Backend kennt) oder wenn die OpenJDK Einstellung der Umgebungs-Variable
+.BR _JAVA_AWT_WM_NONREPARENTING=1 .
+genutzt wird.
+.P
+GTK 2.10.9+ Versionen verfügen über eine zerbrochene
+.BR Speichern\-Als
+Datei-Dialog-Implementation, welche nachfragt, seine Fenstergröße zu rekonfigurieren, und das in einer Endlosschleife. Wie auch immer, das Fenster ist immer noch ansprechbar während dieses Zustands, man muß einfach nur das Flackern ignorieren, bis eine neue GTK Version erscheint, welche diesen Fehler behebt, voraussichtlich sind dies die GTK 2.10.12+ Versionen.

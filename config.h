@@ -2,12 +2,12 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#002b36";
-static const char normbgcolor[]     = "#002b36"; 
-static const char normfgcolor[]     = "#839495";
-static const char selbordercolor[]  = "#d33682";
-static const char selbgcolor[]      = "#d33682";
-static const char selfgcolor[]      = "#eee8d5";
+static const char normbordercolor[] = "#444444";
+static const char normbgcolor[]     = "#404040"; //"#222222"; 
+static const char normfgcolor[]     = "#bbbbbb";
+static const char selbordercolor[]  = "#bbbbbb"; //"#005577";
+static const char selbgcolor[]      = "#bbbbbb"; //"#005577";
+static const char selfgcolor[]      = "#444444"; //"#eeeeee";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -22,8 +22,9 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-//	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
-//	{ "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
+	{ "Transmission",  NULL,       NULL,       1 << 7,       False,       -1 },
 };
 
 /* layout(s) */
@@ -59,7 +60,7 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *m_e_cmd[] = { "emacs", NULL };
-static const char *m_w_cmd[] = { "surf", NULL };
+static const char *m_w_cmd[] = { "iceweasel", NULL };
 static const char *m_s_w_cmd[] = { "start-tor-browser", NULL };
 static const char *m_y_cmd[] = { "trackpad-toggle.sh", NULL };
 static const char *killall_cmd[] = { "killall", "startdwm", NULL };

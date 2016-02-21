@@ -58,12 +58,12 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "st-ito", NULL };
 static const char *m_e_cmd[] = { "emacs", NULL };
 static const char *m_w_cmd[] = { "iceweasel", NULL };
 static const char *m_s_w_cmd[] = { "start-tor-browser", NULL };
 static const char *m_y_cmd[] = { "trackpad-toggle.sh", NULL };
-static const char *killall_cmd[] = { "killall", "startdwm", NULL };
+static const char *killall_cmd[] = { "killall", "startdwm-ito", NULL };
 static const char *rotate_right_cmd[] = { "rotate-right", NULL };
 static const char *rotate_left_cmd[] = { "rotate-left", NULL };
 static const char *rotate_inverted_cmd[] = { "rotate-inverted", NULL };

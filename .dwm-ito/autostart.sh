@@ -7,14 +7,11 @@ synclient TapButton1=1 &
 #synclient TapButton3=3 &
 #synclient touchpadoff=1 &
 #setxkbmap -layout de nodeadkeys &
-conky -c .conkydwm | while read -r; do xsetroot -name "$REPLY"; done &
+conky -c conkydwm-ito | while read -r; do xsetroot -name "$REPLY"; done &
 nitrogen --restore &
 xfce4-volumed &
 xfce4-power-manager &
-#thunar --daemon &
 xscreensaver -no-splash &
 nm-applet &
 unclutter &
-#exec ck-launch-session dbus-launch startdwm
-#exec dbus-launch dwm-ito
 

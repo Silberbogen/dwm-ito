@@ -1,0 +1,14 @@
+use_xft yes
+xftfont Meslo LG S::size=8
+#xftfont Liberation Sans::size=8
+xftalpha 1
+out_to_console yes
+out_to_x no
+background no
+update_interval 2
+total_run_times 0
+use_spacer none
+override_utf8_locales yes
+
+TEXT
+${freq_g} GHz  ${cpu cpu0}%  ${acpitemp}C  ${battery BATA}  ${loadavg 2 3}  $mem  ${downspeed wlan0}  ${upspeed wlan0}  ${time %a, %d. %b %H:%M%P}

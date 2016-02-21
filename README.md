@@ -1,15 +1,15 @@
 dwm-ito - Dynamischer Fenstermanager
 ====================================
 
-Einf auf dwm basierender, angepasster Fenstermanager, mit den folgenden Patches:
+Ein auf dwm basierender, angepasster Fenstermanager, mit den folgenden Patches:
 
-** bottom stack patch
-** systray patch
-** view adjacent patch
-** monocle count patch
-** view on tag patch
+* **bottom stack patch**
+* **systray patch**
+* **view adjacent patch**
+* **monocle count patch**
+* **view on tag patch**
 
-Die beiliegenden Konfigurationsdateien sind angepasst für Debian Jessie.
+Die beiliegenden Konfigurationsdateien sind angepasst für die Nutzung unter Debian Jessie.
 
 Bildschirmfotos
 ---------------

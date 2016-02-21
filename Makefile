@@ -53,10 +53,12 @@ install: all
 	@echo Installiere Desktop-Datei nach /usr/share/xsessions
 	@cp -f dwm-ito.desktop /usr/share/xsessions
 	@chmod 644 /usr/share/xsessions/dwm-ito.desktop
-	@echo Installiere autostart.sh nach /etc/skel/.dwm-ito/autostart.sh
+	@echo Installiere Beispielkonfiguration nach /etc/skel/
 	@mkdir -p /etc/skel/.dwm-ito
 	@cp -f .dwm-ito/autostart.sh /etc/skel/.dwm-ito
 	@chmod 644 /etc/skel/.dwm-ito/autostart.sh
+	@cp -f .conkydwm-ito /etc/skel
+	@chmod 644 /etc/skel/.conkydwm-ito
 
 uninstall:
 	@echo Entferne ausführbare Datei aus ${DESTDIR}${PREFIX}/bin
@@ -68,5 +70,6 @@ uninstall:
 	@echo Entferne autostart.sh aus /etc/skel
 	@rm -f /etc/skel/.dwm-ito/autostart.sh
 	@rmdir /etc/skel/.dwm-ito
+	@rm -f /etc/skel/.conkydwm-ito
 
 .PHONY: all options clean dist install uninstall

@@ -42,19 +42,31 @@ dist: clean
 	@rm -rf dwm-ito-${VERSION}
 
 install: all
-	@echo installing executable file to ${DESTDIR}${PREFIX}/bin
+	@echo Installiere ausführbare Datei nach ${DESTDIR}${PREFIX}/bin
 	@mkdir -p ${DESTDIR}${PREFIX}/bin
 	@cp -f dwm-ito ${DESTDIR}${PREFIX}/bin
 	@chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-ito
-	@echo installing manual page to ${DESTDIR}${MANPREFIX}/man1
+	@echo Installiere Handbuch-Seiten nach ${DESTDIR}${MANPREFIX}/man1
 	@mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	@sed "s/VERSION/${VERSION}/g" < dwm-ito.1 > ${DESTDIR}${MANPREFIX}/man1/dwm-ito.1
 	@chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm-ito.1
+	@echo Installiere Desktop-Datei nach /usr/share/xsessions
+	@cp -f dwm-ito.desktop /usr/share/xsessions
+	@chmod 644 /usr/share/xsessions/dwm-ito.desktop
+	@echo Installiere autostart.sh nach /etc/skel/.dwm-ito/autostart.sh
+	@mkdir -p /etc/skel/.dwm-ito
+	@cp -f .dwm-ito/autostart.sh /etc/skel/.dwm-ito
+	@chmod 644 /etc/skel/.dwm-ito/autostart.sh
 
 uninstall:
-	@echo removing executable file from ${DESTDIR}${PREFIX}/bin
+	@echo Entferne ausführbare Datei aus ${DESTDIR}${PREFIX}/bin
 	@rm -f ${DESTDIR}${PREFIX}/bin/dwm-ito
-	@echo removing manual page from ${DESTDIR}${MANPREFIX}/man1
+	@echo Entferne Handbuch-Seiten aus ${DESTDIR}${MANPREFIX}/man1
 	@rm -f ${DESTDIR}${MANPREFIX}/man1/dwm-ito.1
+	@echo Entferne Desktop-Datei aus /usr/share/xsessions
+	@rm -f /usr/share/xsessions/dwm-ito.desktop
+	@echo Entferne autostart.sh aus /etc/skel
+	@rm -f /etc/skel/.dwm-ito/autostart.sh
+	@rmdir /etc/skel/.dwm-ito
 
 .PHONY: all options clean dist install uninstall

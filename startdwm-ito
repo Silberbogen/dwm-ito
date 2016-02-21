@@ -1,7 +1,0 @@
-#!/bin/bash
-while true; do
-	# Loggen einschgeschaltet
-	dwm-ito 2> ~/.dwm.log
-	# Loggen ausgeschaltet
-	#dwm >/dev/null 2>&1
-done

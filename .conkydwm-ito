@@ -11,7 +11,4 @@ use_spacer none
 override_utf8_locales yes
 
 TEXT
-${freq_g} GHz  ${cpu cpu0}%  ${acpitemp}C  ${battery BATA}  ${loadavg 2 3}  $mem  ${downspeed wlan0}  ${upspeed wlan0}  ${time %a, %d. %b %H:%M%P}
-#${freq_g} GHz  ${cpu cpu0}%  ${acpitemp}C  ${loadavg 2 3}  $mem $running_processes/$processes  $running_threads/$threads  ${downspeed wlan0}  ${upspeed wlan0}  ${time %a, %d. %b %H:%M%P}
-#${freq_g} GHz ${cpu cpu0}% ${acpitemp}C | ${loadavg 2 3} | $mem | ${downspeed wlan0} | ${upspeed wlan0} | ${time %a, %d. %b %H:%M%P}
-# \\#32a2f3\${freq_g} GHz \\#32a26e\${cpu cpu1}% \\#ffffff\• \\#f4cf00\${loadavg 2 3} \\#ffffff\• \\#7171ed\$memperc% \\#00b5de\$mem \\#ffffff\• \\#e0d93b\${fs_free /} \\#ffffff\• \\#32a2f3\${wireless_essid wlan0}\\#ffffff\ • \\#00d1a0\${downspeed wlan0} \\#ffffff\• \\#f40000\${upspeed wlan0}\\#ffffff\ • \\#f38b32\${time %a, %d. %b %H:%M%P}
+${freq_g} GHz  ${cpu cpu0}%  ${acpitemp}C  ${battery BATA}  ${loadavg 2 3}  $mem  ${downspeed wlan0}  ${upspeed wlan0}  ${time %a, %d.%m.%Y, %H:%M%P}

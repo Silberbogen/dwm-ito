@@ -1,7 +1,13 @@
 [Desktop Entry]
 Encoding=UTF-8
 Name=Dwm-Ito
+GenericName=Window Manager
 Comment=Dynamic window manager
 Exec=dwm-ito
 Icon=dwm
 Type=XSession
+Terminal=false
+TryExec=dwm-ito
+
+[Window Manager]
+SessionManaged=true

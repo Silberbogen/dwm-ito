@@ -11,7 +11,8 @@ conky -c conkydwm-ito | while read -r; do xsetroot -name "$REPLY"; done &
 nitrogen --restore &
 xfce4-volumed &
 xfce4-power-manager &
-xscreensaver -no-splash &
+#xscreensaver -no-splash &
+xss-lock -- slock &
 nm-applet &
 unclutter &
 

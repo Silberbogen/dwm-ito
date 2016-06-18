@@ -2,12 +2,12 @@
 
 /* appearance */
 static const char font[]            = "-*-terminus-medium-r-*-*-12-*-*-*-*-*-*-*";
-static const char normbordercolor[] = "#032c36"; //"#444444";
-static const char normbgcolor[]     = "#032c36"; //"#404040"; //"#222222"; 
-static const char normfgcolor[]     = "#44b5b1"; //"#bbbbbb";
-static const char selbordercolor[]  = "#44b5b1"; //"#ff9d00"; //"#005577";
-static const char selbgcolor[]      = "#44b5b1"; //"#ff9d00"; //"#005577";
-static const char selfgcolor[]      = "#032c36"; //"#eeeeee";
+static const char normbordercolor[] = "#444444";
+static const char normbgcolor[]     = "#404040";
+static const char normfgcolor[]     = "#bbbbbb";
+static const char selbordercolor[]  = "#636363";
+static const char selbgcolor[]      = "#636363";
+static const char selfgcolor[]      = "#eeeeee";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systrayspacing = 2;   /* systray spacing */
@@ -22,9 +22,8 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
-	{ "Iceweasel",  NULL,       NULL,       1 << 8,       False,       -1 },
-	{ "Transmission",  NULL,       NULL,       1 << 7,       False,       -1 },
+//	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
+//	{ "Transmission",  NULL,       NULL,       1 << 7,       False,       -1 },
 };
 
 /* layout(s) */

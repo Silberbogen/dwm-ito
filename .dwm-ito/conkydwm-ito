@@ -11,4 +11,4 @@ use_spacer none
 override_utf8_locales yes
 
 TEXT
-${freq_g} GHz  ${cpu cpu0}%  ${acpitemp}C  ${battery BATA}  ${loadavg 2 3}  $mem  ${downspeed wlan0}  ${upspeed wlan0}  ${time %a, %d. %b %H:%M%P}
+${freq_g} GHz  ${cpu cpu0}%  ${acpitemp}C  ${battery BATA}  ${loadavg 2 3}  $mem  ${downspeed wlan0}  ${upspeed wlan0}  ${time %a, %d.%m.%Y, %H:%M%P}

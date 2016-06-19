@@ -59,6 +59,8 @@ static const Layout layouts[] = {
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "st-ito", NULL };
 static const char *m_e_cmd[] = { "emacs", NULL };
+static const char *m_s_cmd[] = { "surf", NULL };
+static const char *m_s_s_cmd[] = { "surf-proxy.sh", NULL };
 static const char *m_w_cmd[] = { "firefox", NULL };
 static const char *m_s_w_cmd[] = { "start-tor-browser", NULL };
 static const char *m_y_cmd[] = { "trackpad-toggle.sh", NULL };
@@ -119,6 +121,8 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
     { MODKEY|Mod1Mask|ShiftMask,    XK_q,      spawn,          {.v = killall_cmd } },
     { MODKEY,                       XK_e,      spawn,          {.v = m_e_cmd } },
+    { MODKEY,                       XK_s,      spawn,          {.v = m_s_cmd } },
+    { MODKEY|ShiftMask,             XK_s,      spawn,          {.v = m_s_s_cmd } },
     { MODKEY,                       XK_w,      spawn,          {.v = m_w_cmd } },
     { MODKEY|ShiftMask,             XK_w,      spawn,          {.v = m_s_w_cmd } },
     { MODKEY,                       XK_y,      spawn,          {.v = m_y_cmd } },

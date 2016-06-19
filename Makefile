@@ -45,6 +45,7 @@ install: all
 	@echo Installiere ausführbare Datei nach ${DESTDIR}${PREFIX}/bin
 	@mkdir -p ${DESTDIR}${PREFIX}/bin
 	@cp -f dwm-ito ${DESTDIR}${PREFIX}/bin
+	@cp -f surf-proxy.sh ${DESTDIR}${PREFIX}/bin
 	@chmod 755 ${DESTDIR}${PREFIX}/bin/dwm-ito
 	@echo Installiere Handbuch-Seiten nach ${DESTDIR}${MANPREFIX}/man1
 	@mkdir -p ${DESTDIR}${MANPREFIX}/man1
@@ -61,6 +62,7 @@ install: all
 uninstall:
 	@echo Entferne ausführbare Datei aus ${DESTDIR}${PREFIX}/bin
 	@rm -f ${DESTDIR}${PREFIX}/bin/dwm-ito
+	@rm -f ${DESTDIR}${PREFIX}/bin/surf-proxy.sh
 	@echo Entferne Handbuch-Seiten aus ${DESTDIR}${MANPREFIX}/man1
 	@rm -f ${DESTDIR}${MANPREFIX}/man1/dwm-ito.1
 	@echo Entferne Desktop-Datei aus /usr/share/xsessions

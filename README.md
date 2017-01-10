@@ -8,6 +8,7 @@ Ein auf dwm basierender, angepasster Fenstermanager, mit den folgenden Patches:
 * **view adjacent patch**
 * **monocle count patch**
 * **view on tag patch**
+* *per tag patch*
 
 Die beiliegenden Konfigurationsdateien sind angepasst für die Nutzung unter Debian Jessie.
 

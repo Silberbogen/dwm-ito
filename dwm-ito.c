@@ -245,6 +245,7 @@ static void resizerequest(XEvent *e);
 static void restack(Monitor *m);
 static void run(void);
 static void runAutostart(void);
+static void runAutostop(void);
 static void scan(void);
 static Bool sendevent(Window w, Atom proto, int m, long d0, long d1, long d2, long d3, long d4);
 static void sendmon(Client *c, Monitor *m);
@@ -1637,8 +1638,12 @@ run(void) {
 
 void
 runAutostart(void) {
-	system("cd ~/.dwm-ito; ./autostart_blocking.sh");
 	system("cd ~/.dwm-ito; ./autostart.sh &");
+}
+
+void
+runAutostop(void) {
+	system("cd ~/.dwm-ito; ./autstop.sh");
 }
 
 void
@@ -2522,7 +2527,7 @@ zoom(const Arg *arg) {
 int
 main(int argc, char *argv[]) {
 	if(argc == 2 && !strcmp("-v", argv[1]))
-		die("dwm-ito-"VERSION", © 2006-2016 dwm-ito engineers, see LICENSE for details\n");
+		die("dwm-ito-"VERSION", © 2006-2017 dwm-ito engineers, see LICENSE for details\n");
 	else if(argc != 1)
 		die("usage: dwm-ito [-v]\n");
 	if(!setlocale(LC_CTYPE, "") || !XSupportsLocale())
@@ -2534,6 +2539,7 @@ main(int argc, char *argv[]) {
 	scan();
 	runAutostart();
 	run();
+	runAutostop();
 	cleanup();
 	XCloseDisplay(dpy);
 	return EXIT_SUCCESS;
